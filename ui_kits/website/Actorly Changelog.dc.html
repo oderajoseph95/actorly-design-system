@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Changelog: what's new in Actorly · Actorly</title><link rel="canonical" href="https://actorlyai.com/changelog"><meta property="og:type" content="website"><meta property="og:site_name" content="Actorly"><meta property="og:url" content="https://actorlyai.com/changelog"><meta property="og:title" content="Changelog: what's new in Actorly · Actorly"><meta property="og:description" content="Every release of Actorly: new parts of the store tracked, restores, fixes and improvements."><meta name="twitter:card" content="summary_large_image"><link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
+<meta name="description" content="Every release of Actorly: new parts of the store tracked, restores, fixes and improvements.">
+</helmet>
+<div style="overflow-x:clip">
+<dc-import name="SiteNav" hint-size="100%,86px"></dc-import>
+
+<section style="padding:180px 24px 64px">
+  <div style="max-width:980px; margin:0 auto; display:flex; flex-direction:column; gap:22px">
+    <h1 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(44px,6.6vw,108px); line-height:.92; letter-spacing:-.058em"><span data-mk-mask><span data-mk-line>Changelog.</span></span></h1>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:#57514A; max-width:600px">Example release notes, newest first.</p>
+    <div data-mk-fade data-mk-delay="0.4" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px">
+      <sc-for list="{{ types }}" as="t" hint-placeholder-count="5"><button type="button" onClick="{{ t.pick }}" style="height:40px; padding:0 16px; border:0; border-radius:999px; font:inherit; font-size:15px; font-weight:600; cursor:pointer; background:{{ t.bg }}; color:{{ t.fg }}; box-shadow:0 0 0 1px #DDD6CA; transition:background .25s, color .25s">{{ t.label }}</button></sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 24px 140px">
+  <div style="max-width:980px; margin:0 auto; display:flex; flex-direction:column; gap:14px">
+    <sc-for list="{{ entries }}" as="e" hint-placeholder-count="6">
+      <article style="background:#FFF; border-radius:24px; box-shadow:0 0 0 1px #DDD6CA; padding:clamp(22px,3vw,34px); display:grid; grid-template-columns:150px minmax(0,1fr); gap:24px">
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-size:15px; font-weight:650">{{ e.date }}</span><span style="align-self:flex-start; padding:4px 11px; border-radius:999px; font-size:13px; font-weight:600; background:{{ e.tbg }}; color:{{ e.tfg }}">{{ e.type }}</span></div>
+        <div style="display:flex; flex-direction:column; gap:10px"><h2 style="margin:0; font-size:22px; font-weight:700; letter-spacing:-.02em; line-height:1.25">{{ e.title }}</h2><p style="margin:0; font-size:16px; line-height:1.6; color:#57514A">{{ e.body }}</p><span style="font-size:14px; color:#6B645B">{{ e.plan }}</span></div>
+      </article>
+    </sc-for>
+    <a href="Actorly Changelog.dc.html" style="align-self:center; margin-top:18px; font-size:15px; font-weight:600; text-decoration:underline; text-decoration-color:#FF4A1A; text-underline-offset:5px">Subscribe with RSS</a>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,820px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { t: 'All' };
+  renderVals() {
+    const E = [
+      ['Example date', 'Coverage', 'The coverage page lists the parts of a Shopify store', 'Each part of a Shopify store, with when changes appear, whether the old value is kept, whether Actorly can show who made it and whether it can be put back. The "not possible" answers are included.', 'All plans'],
+      ['Example date', 'Feature', 'Restore tags on a product', 'Put a product\'s tags back to an earlier set. The confirm step names the exact tags that will be added and removed before anything is written.', 'Restore plan, and the monthly restore on Watch'],
+      ['Example date', 'Feature', 'Export your history to CSV or JSON', 'Export from the Data room: choose a date range, a type of record, a level of detail and CSV or JSON.', 'Restore plan'],
+      ['Example date', 'Feature', 'See who likely made a product change', 'Product changes are matched against Shopify\'s own activity for the same product at the same time. Each name is shown with how sure Actorly is, and unknown when there\'s no clear match.', 'All plans'],
+      ['Example date', 'Improvement', 'Every restore is checked afterwards', 'After writing the old value, Actorly reads your store again and only marks the restore done once Shopify shows it.', 'All plans'],
+      ['Example date', 'Coverage', 'Orders and fulfillments are recorded', 'Status changes on orders and fulfillments now appear in your history, from the day you install.', 'All plans'],
+      ['Example date', 'Fix', 'Change dates show in your store\'s time zone', 'The detail view sometimes showed the time in UTC. It now matches your store settings everywhere.', 'All plans'],
+      ['Example date', 'Feature', 'First release (example entry)', 'A searchable history of changes to your store, with the old value and the new value for each one.', 'All plans']
+    ];
+    const col = { Feature: ['#FFE6DC', '#A32C00'], Improvement: ['#E0F0FF', '#00527C'], Fix: ['#EBE6DD', '#57514A'], Coverage: ['#CDFEE1', '#0C5132'] };
+    const t = this.state.t;
+    return {
+      entries: E.filter(e => t === 'All' || e[1] === t).map(e => ({ date: e[0], type: e[1], title: e[2], body: e[3], plan: e[4], tbg: col[e[1]][0], tfg: col[e[1]][1] })),
+      types: ['All', 'Feature', 'Improvement', 'Coverage', 'Fix'].map(k => ({ label: k, bg: k === t ? '#12100E' : '#FFF', fg: k === t ? '#F2EFE9' : '#12100E', pick: () => this.setState({ t: k }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

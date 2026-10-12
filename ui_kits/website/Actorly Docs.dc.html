@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Docs: how to use Actorly · Actorly</title><link rel="canonical" href="https://actorlyai.com/docs"><meta property="og:type" content="website"><meta property="og:site_name" content="Actorly"><meta property="og:url" content="https://actorlyai.com/docs"><meta property="og:title" content="Docs: how to use Actorly · Actorly"><meta property="og:description" content="Install Actorly, read a change, see who made it, search your history and restore a field. Short guides for every screen."><meta name="twitter:card" content="summary_large_image"><link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
+<meta name="description" content="Install Actorly, read a change, see who made it, search your history and restore a field. Short guides for every screen.">
+<style>@media (max-width:900px){[data-docs-grid]{grid-template-columns:minmax(0,1fr)!important}[data-docs-side]{display:none!important}}</style>
+</helmet>
+<div style="overflow-x:clip">
+<dc-import name="SiteNav" current="docs" hint-size="100%,86px"></dc-import>
+
+<section style="padding:180px 24px 72px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; gap:22px">
+    <h1 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(44px,6.6vw,108px); line-height:.92; letter-spacing:-.058em"><span data-mk-mask><span data-mk-line>Docs.</span></span></h1>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:#57514A; max-width:620px">Everything you need to use Actorly, in the order you'll need it. </p>
+    <div data-mk-stagger="0.07" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:14px; margin-top:20px">
+      <a href="#start" style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:8px; color:#12100E" style-hover="box-shadow:0 0 0 1.5px #12100E; color:#12100E"><span style="font-size:14px; font-weight:700; color:#A32C00">01</span><span style="font-size:19px; font-weight:700">Getting started</span><span style="font-size:15px; color:#57514A; line-height:1.5">Install, and what happens first.</span></a>
+      <a href="#reading" style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:8px; color:#12100E" style-hover="box-shadow:0 0 0 1.5px #12100E; color:#12100E"><span style="font-size:14px; font-weight:700; color:#A32C00">02</span><span style="font-size:19px; font-weight:700">Reading a change</span><span style="font-size:15px; color:#57514A; line-height:1.5">Before, after, when and who.</span></a>
+      <a href="#finding" style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:8px; color:#12100E" style-hover="box-shadow:0 0 0 1.5px #12100E; color:#12100E"><span style="font-size:14px; font-weight:700; color:#A32C00">03</span><span style="font-size:19px; font-weight:700">Finding a change</span><span style="font-size:15px; color:#57514A; line-height:1.5">Search, filters and a product's history.</span></a>
+      <a href="#restore" style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:8px; color:#12100E" style-hover="box-shadow:0 0 0 1.5px #12100E; color:#12100E"><span style="font-size:14px; font-weight:700; color:#A32C00">04</span><span style="font-size:19px; font-weight:700">Putting it back</span><span style="font-size:15px; color:#57514A; line-height:1.5">How a restore runs and is checked.</span></a>
+    </div>
+  </div>
+</section>
+
+<section style="background:#FFF; padding:110px 24px 140px">
+  <div data-docs-grid style="max-width:1240px; margin:0 auto; display:grid; grid-template-columns:240px minmax(0,1fr); gap:64px">
+    <aside data-docs-side style="position:sticky; top:110px; align-self:start; display:flex; flex-direction:column; gap:4px; font-size:15px">
+      <span style="font-size:13px; font-weight:700; color:#6B645B; padding:0 12px 8px">On this page</span>
+      <a href="#start" style="padding:8px 12px; border-radius:12px" style-hover="background:#F2EFE9">Getting started</a>
+      <a href="#reading" style="padding:8px 12px; border-radius:12px" style-hover="background:#F2EFE9">Reading a change</a>
+      <a href="#who" style="padding:8px 12px; border-radius:12px" style-hover="background:#F2EFE9">Who made it</a>
+      <a href="#finding" style="padding:8px 12px; border-radius:12px" style-hover="background:#F2EFE9">Finding a change</a>
+      <a href="#restore" style="padding:8px 12px; border-radius:12px" style-hover="background:#F2EFE9">Putting it back</a>
+      <a href="#export" style="padding:8px 12px; border-radius:12px" style-hover="background:#F2EFE9">Exporting</a>
+      <a href="#plans" style="padding:8px 12px; border-radius:12px" style-hover="background:#F2EFE9">Plans and history</a>
+      <a href="#trouble" style="padding:8px 12px; border-radius:12px" style-hover="background:#F2EFE9">Troubleshooting</a>
+    </aside>
+    <article style="display:flex; flex-direction:column; gap:96px; max-width:760px">
+
+      <div id="start" style="scroll-margin-top:110px; display:flex; flex-direction:column; gap:20px">
+        <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,4vw,60px); line-height:.94; letter-spacing:-.05em"><span data-mk-mask><span data-mk-line>Getting started.</span></span></h2>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A">Install Actorly and approve the permissions. There's nothing to set up and nothing is added to your theme.</p>
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <div style="display:grid; grid-template-columns:44px minmax(0,1fr); gap:14px; padding:18px; border-radius:18px; background:#F2EFE9"><span style="width:32px; height:32px; border-radius:50%; background:#12100E; color:#F2EFE9; font-weight:700; display:flex; align-items:center; justify-content:center">1</span><span style="font-size:16px; line-height:1.55"><b style="font-weight:650">Actorly takes a first look.</b> It reads the current value of the products, collections, inventory, discounts, shipping, markets, locations, themes and store settings it tracks, and of the pages, menus, files and other kinds it checks on a schedule. This is your starting point. Customers, orders, fulfillments, draft orders and selling plans are recorded only from their first change after you install.</span></div>
+          <div style="display:grid; grid-template-columns:44px minmax(0,1fr); gap:14px; padding:18px; border-radius:18px; background:#F2EFE9"><span style="width:32px; height:32px; border-radius:50%; background:#12100E; color:#F2EFE9; font-weight:700; display:flex; align-items:center; justify-content:center">2</span><span style="font-size:16px; line-height:1.55"><b style="font-weight:650">Changes start arriving.</b> From now on, the changes Shopify reports appear in Changes. Some parts of the store are checked on a schedule instead.</span></div>
+          <div style="display:grid; grid-template-columns:44px minmax(0,1fr); gap:14px; padding:18px; border-radius:18px; background:#F2EFE9"><span style="width:32px; height:32px; border-radius:50%; background:#12100E; color:#F2EFE9; font-weight:700; display:flex; align-items:center; justify-content:center">3</span><span style="font-size:16px; line-height:1.55"><b style="font-weight:650">Keep working as usual.</b> Your team edits in Shopify the normal way. Actorly records it in the background.</span></div>
+        </div>
+        <p style="margin:0; font-size:16px; line-height:1.6; color:#57514A; padding:16px 18px; border-radius:16px; box-shadow:inset 0 0 0 1.5px #FF4A1A">Changes from before you installed can't be recovered. Shopify doesn't keep them, so no app can show them.</p>
+      </div>
+
+      <div id="reading" style="scroll-margin-top:110px; display:flex; flex-direction:column; gap:20px">
+        <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,4vw,60px); line-height:.94; letter-spacing:-.05em"><span data-mk-mask><span data-mk-line>Reading a change.</span></span></h2>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A">Open any row in Changes to see the detail: what changed, what it was before, what it is now, when it happened and who made it if Shopify reports it.</p>
+        <div data-mk-fade style="border-radius:20px; box-shadow:0 0 0 1px #E3E3E3; overflow:hidden; font-family:Inter,-apple-system,'Segoe UI',sans-serif; color:#303030">
+          <div style="padding:14px 18px; background:#F7F7F7; font-size:14px; font-weight:650">Studio Headphones · price changed · Today, 2:32 PM</div>
+          <div style="display:grid; grid-template-columns:120px 1fr 1fr; padding:10px 18px; font-size:12px; font-weight:600; color:#616161; border-top:1px solid #EBEBEB"><span>Field</span><span>Was</span><span>Now</span></div>
+          <div style="display:grid; grid-template-columns:120px 1fr 1fr; padding:13px 18px; font-size:15px; border-top:1px solid #EBEBEB"><span style="font-weight:600">Price</span><span><span style="background:#FEE9E8; color:#8E1F0B; padding:2px 8px; border-radius:6px; text-decoration:line-through">$129.00</span></span><span><span style="background:#CDFEE1; color:#0C5132; padding:2px 8px; border-radius:6px; font-weight:650">$89.00</span></span></div>
+          <div style="display:grid; grid-template-columns:120px 1fr 1fr; padding:13px 18px; font-size:15px; border-top:1px solid #EBEBEB; color:#616161"><span>Compare-at</span><span>Empty</span><span>Empty</span></div>
+        </div>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A"></p>
+      </div>
+
+      <div id="who" style="scroll-margin-top:110px; display:flex; flex-direction:column; gap:20px">
+        <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,4vw,60px); line-height:.94; letter-spacing:-.05em"><span data-mk-mask><span data-mk-line>Who made it.</span></span></h2>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A">For product changes, Actorly matches the change against Shopify's own activity for that product at that time. You'll see how sure Actorly is, always with the name and the label side by side: Likely, Possible or Unknown.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; font-family:Inter,-apple-system,'Segoe UI',sans-serif"><span style="background:#E0F0FF; color:#00527C; padding:5px 12px; border-radius:999px; font-size:14px; font-weight:600">Likely</span><span style="background:#E0F0FF; color:#00527C; padding:5px 12px; border-radius:999px; font-size:14px; font-weight:600">Possible</span><span style="background:#EBEBEB; color:#616161; padding:5px 12px; border-radius:999px; font-size:14px; font-weight:600">Unknown</span></div>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A">Other parts of the store, like inventory or shipping, don't come with this information from Shopify, so they show "Unknown". <a href="Actorly Coverage.dc.html" style="color:#A32C00; text-decoration:underline; text-underline-offset:4px">See which parts show who</a>.</p>
+      </div>
+
+      <div id="finding" style="scroll-margin-top:110px; display:flex; flex-direction:column; gap:20px">
+        <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,4vw,60px); line-height:.94; letter-spacing:-.05em"><span data-mk-mask><span data-mk-line>Finding a change.</span></span></h2>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A">Search Changes by product name, field or value. Narrow it down with the filters:</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr)); gap:10px">
+          <div style="padding:16px; border-radius:16px; background:#F2EFE9"><b style="font-weight:650; display:block; margin-bottom:4px">Resource</b><span style="font-size:15px; color:#57514A">Products, discounts, themes…</span></div>
+          <div style="padding:16px; border-radius:16px; background:#F2EFE9"><b style="font-weight:650; display:block; margin-bottom:4px">Change</b><span style="font-size:15px; color:#57514A">Created, updated, deleted</span></div>
+          <div style="padding:16px; border-radius:16px; background:#F2EFE9"><b style="font-weight:650; display:block; margin-bottom:4px">Who</b><span style="font-size:15px; color:#57514A">Staff member, App, Shopify, Actorly, Unknown or Not attributed yet</span></div>
+          <div style="padding:16px; border-radius:16px; background:#F2EFE9"><b style="font-weight:650; display:block; margin-bottom:4px">When</b><span style="font-size:15px; color:#57514A">Any date range</span></div>
+        </div>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A">To see everything that's ever happened to one product, open it in the Data room. It lists the values Actorly holds and every recorded change, newest first.</p>
+      </div>
+
+      <div id="restore" style="scroll-margin-top:110px; display:flex; flex-direction:column; gap:20px">
+        <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,4vw,60px); line-height:.94; letter-spacing:-.05em"><span data-mk-mask><span data-mk-line>Putting it back.</span></span></h2>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A">On fields that support it, a change shows a Restore button. A restore puts back one field at a time and runs in this order:</p>
+        <div data-mk-stagger="0.07" style="display:flex; flex-direction:column; gap:8px">
+          <div style="display:grid; grid-template-columns:40px minmax(0,1fr); gap:12px; align-items:center; padding:14px 16px; border-radius:16px; background:#F2EFE9"><span style="font-weight:700; color:#A32C00">1</span><span style="font-size:16px">Read the field's value in Shopify right now.</span></div>
+          <div style="display:grid; grid-template-columns:40px minmax(0,1fr); gap:12px; align-items:center; padding:14px 16px; border-radius:16px; background:#F2EFE9"><span style="font-weight:700; color:#A32C00">2</span><span style="font-size:16px">Check it still matches what Actorly recorded. If someone changed it since, stop.</span></div>
+          <div style="display:grid; grid-template-columns:40px minmax(0,1fr); gap:12px; align-items:center; padding:14px 16px; border-radius:16px; background:#F2EFE9"><span style="font-weight:700; color:#A32C00">3</span><span style="font-size:16px">Ask you to confirm the exact value that will be written.</span></div>
+          <div style="display:grid; grid-template-columns:40px minmax(0,1fr); gap:12px; align-items:center; padding:14px 16px; border-radius:16px; background:#F2EFE9"><span style="font-weight:700; color:#A32C00">4</span><span style="font-size:16px">Write the old value to Shopify.</span></div>
+          <div style="display:grid; grid-template-columns:40px minmax(0,1fr); gap:12px; align-items:center; padding:14px 16px; border-radius:16px; background:#F2EFE9"><span style="font-weight:700; color:#A32C00">5</span><span style="font-size:16px">Read the store again and check the value really took.</span></div>
+          <div style="display:grid; grid-template-columns:40px minmax(0,1fr); gap:12px; align-items:center; padding:14px 16px; border-radius:16px; background:#F2EFE9"><span style="font-weight:700; color:#A32C00">6</span><span style="font-size:16px">Record the restore in your history, like any other change.</span></div>
+        </div>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A">If a check before the write fails, nothing is changed. If the check after the write cannot confirm the value, Actorly says so and asks you to look at the field in Shopify. Restores work one field at a time on select fields, such as a product's title, status or tags, a variant's price or a collection's title. Each field's support is listed on the <a href="Actorly Coverage.dc.html" style="color:#A32C00; text-decoration:underline; text-underline-offset:4px">coverage page</a>.</p>
+      </div>
+
+      <div id="export" style="scroll-margin-top:110px; display:flex; flex-direction:column; gap:20px">
+        <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,4vw,60px); line-height:.94; letter-spacing:-.05em"><span data-mk-mask><span data-mk-line>Exporting.</span></span></h2>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A">On the Restore plan, export your history as CSV or JSON from the Data room. Choose a date range, a type of record, a level of detail (Simple, Deep or Very detailed) and CSV or JSON.</p>
+      </div>
+
+      <div id="plans" style="scroll-margin-top:110px; display:flex; flex-direction:column; gap:20px">
+        <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,4vw,60px); line-height:.94; letter-spacing:-.05em"><span data-mk-mask><span data-mk-line>Plans and history.</span></span></h2>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A">Watch is free: every tracked part of the store, unlimited changes, 3 months of history and one restore a month. Restore is $29 a month or $240 a year: unlimited history, unlimited restores and export. Change plans in your Shopify admin; billing is on your Shopify invoice.</p>
+        <p style="margin:0; font-size:17px; line-height:1.65; color:#57514A">If you uninstall, your storefront is untouched and your Actorly history is deleted after Shopify's standard waiting period.</p>
+      </div>
+
+      <div id="trouble" style="scroll-margin-top:110px; display:flex; flex-direction:column; gap:14px">
+        <h2 data-mk-reveal style="margin:0 0 6px; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,4vw,60px); line-height:.94; letter-spacing:-.05em"><span data-mk-mask><span data-mk-line>Troubleshooting.</span></span></h2>
+        <details style="border-top:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:20px 0; font-size:18px; font-weight:600">A change I made isn't showing<span data-plus style="font-size:24px; font-weight:400; transition:transform .3s">+</span></summary><p style="margin:0 0 20px; font-size:16px; line-height:1.6; color:#57514A">Most changes appear soon after Shopify reports them. Parts checked on a schedule, like pages and menus, show up at the next check. If it's been longer, check the Monitoring page in the app for anything Actorly couldn't reach.</p></details>
+        <details style="border-top:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:20px 0; font-size:18px; font-weight:600">It says "unknown" for who made it<span data-plus style="font-size:24px; font-weight:400; transition:transform .3s">+</span></summary><p style="margin:0 0 20px; font-size:16px; line-height:1.6; color:#57514A">Shopify didn't report enough to match the change to a person or app. Actorly won't guess, and it won't change unknown to a name later.</p></details>
+        <details style="border-top:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:20px 0; font-size:18px; font-weight:600">The Restore button is missing<span data-plus style="font-size:24px; font-weight:400; transition:transform .3s">+</span></summary><p style="margin:0 0 20px; font-size:16px; line-height:1.6; color:#57514A">That field can't be restored yet, or you've used this month's restore on the free plan. The coverage page lists what can be put back.</p></details>
+        <details style="border-top:1px solid #DDD6CA; border-bottom:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:20px 0; font-size:18px; font-weight:600">A restore stopped part way<span data-plus style="font-size:24px; font-weight:400; transition:transform .3s">+</span></summary><p style="margin:0 0 20px; font-size:16px; line-height:1.6; color:#57514A">The field changed again after Actorly recorded it, so writing the old value could overwrite someone's newer edit. Open the latest change for that field and restore from there.</p></details>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section style="padding:120px 24px">
+  <div style="max-width:1240px; margin:0 auto; background:#12100E; color:#F2EFE9; border-radius:28px; padding:clamp(32px,5vw,64px); display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between">
+    <div style="display:flex; flex-direction:column; gap:10px"><span style="font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(30px,3.6vw,52px); line-height:1; letter-spacing:-.05em">Still stuck?</span><span style="font-size:17px; color:#C9C1B5">Write to support and include your shop's .myshopify.com address.</span></div>
+    <a href="Actorly Contact.dc.html" style="height:54px; padding:0 28px; border-radius:999px; background:#FF4A1A; color:#12100E; font-size:16px; font-weight:700; display:flex; align-items:center" style-hover="background:#F2EFE9; color:#12100E">Contact support</a>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,820px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

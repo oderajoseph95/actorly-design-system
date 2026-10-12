@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('../fonts/Archivo-Variable-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../fonts/Inter-Variable-latin.woff2') format('woff2');
+}
+:root {
+  --font-sans: 'Archivo', Helvetica, Arial, sans-serif;
+  --font-admin: Inter, -apple-system, 'Segoe UI', system-ui, sans-serif;
+}

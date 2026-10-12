@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>How to see who changed a product in Shopify · Actorly</title><link rel="canonical" href="https://actorlyai.com/blog/who-changed-a-product"><meta property="og:type" content="website"><meta property="og:site_name" content="Actorly"><meta property="og:url" content="https://actorlyai.com/blog/who-changed-a-product"><meta property="og:title" content="How to see who changed a product in Shopify · Actorly"><meta property="og:description" content="What Shopify shows you about product changes, what it doesn't, and how to find who changed a price, title or status."><meta property="og:image" content="og/article.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
+<meta name="description" content="What Shopify shows you about product changes, what it doesn't, and how to find who changed a price, title or status.">
+<style>@media (max-width:960px){[data-art-grid]{grid-template-columns:minmax(0,1fr)!important}[data-art-side]{position:static!important}}</style>
+</helmet>
+<div style="overflow-x:clip">
+<dc-import name="SiteNav" current="blog" hint-size="100%,86px"></dc-import>
+
+<header style="padding:170px 24px 56px">
+  <div style="max-width:880px; margin:0 auto; display:flex; flex-direction:column; gap:22px">
+    <a href="Actorly Blog.dc.html" style="font-size:15px; font-weight:600; color:#57514A">← Blog · Investigation</a>
+    <h1 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5.6vw,84px); line-height:.94; letter-spacing:-.055em"><span data-mk-mask><span data-mk-line>How to see who changed</span></span><span data-mk-mask><span data-mk-line>a product in Shopify.</span></span></h1>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; font-size:20px; line-height:1.55; color:#57514A">What Shopify shows you, what it doesn't, and how to find who changed a price, title or status.</p>
+    <div data-mk-fade data-mk-delay="0.4" style="display:flex; flex-wrap:wrap; gap:10px 20px; align-items:center; font-size:15px; color:#57514A"><span style="font-weight:650; color:#12100E">Example author</span><span>Example date</span><span>7 min read</span><span style="flex:1"></span><button type="button" onClick="{{ copy }}" style="height:38px; padding:0 16px; border:0; border-radius:999px; background:#FFF; box-shadow:0 0 0 1px #DDD6CA; font:inherit; font-size:14px; font-weight:600; cursor:pointer">{{ copyLabel }}</button></div>
+  </div>
+</header>
+
+<section style="background:#FFF; padding:80px 24px 130px">
+  <div data-art-grid style="max-width:1180px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:64px">
+    <article style="max-width:720px; display:flex; flex-direction:column; gap:22px; font-size:18px; line-height:1.7; color:#3A342E">
+      <div style="padding:24px 26px; border-radius:22px; background:#F2EFE9; display:flex; flex-direction:column; gap:8px"><span style="font-size:15px; font-weight:700; color:#12100E">Short answer</span><span style="font-size:17px; line-height:1.6">Shopify shows the current value of a product, not its earlier ones, and it doesn't keep a field-by-field history. To see who changed something, you need a record that started before the change happened, and for product changes, a match against Shopify's own activity.</span></div>
+      <h2 id="a1" style="margin:24px 0 0; font-variation-settings:'wdth' 100; font-weight:700; font-size:34px; line-height:1.05; letter-spacing:-.04em; color:#12100E; scroll-margin-top:110px">What Shopify keeps</h2>
+      <p style="margin:0">Open a product in your Shopify admin and you see its values as they are right now. Save a new price and the old price is replaced. There's no built-in screen that lists every price a product has had, or the title it had last week.</p>
+      <p style="margin:0">Shopify does keep a record of some activity, and some apps can read it. But it isn't organised as "this field was X, then Y", and it doesn't cover every kind of change.</p>
+      <h2 id="a2" style="margin:24px 0 0; font-variation-settings:'wdth' 100; font-weight:700; font-size:34px; line-height:1.05; letter-spacing:-.04em; color:#12100E; scroll-margin-top:110px">Why "who" is hard</h2>
+      <p style="margin:0">When a product changes, Shopify can tell an app that it changed and what it changed to. It usually doesn't say who did it in the same message. Staff, apps, imports and bulk edits can all make the same kind of change.</p>
+      <blockquote style="margin:6px 0; padding:4px 0 4px 22px; box-shadow:inset 3px 0 0 #FF4A1A; font-size:21px; line-height:1.5; color:#12100E; font-weight:500">The honest answer is sometimes "unknown". A tool that always shows a name is guessing some of the time.</blockquote>
+      <h2 id="a3" style="margin:24px 0 0; font-variation-settings:'wdth' 100; font-weight:700; font-size:34px; line-height:1.05; letter-spacing:-.04em; color:#12100E; scroll-margin-top:110px">How Actorly works it out</h2>
+      <p style="margin:0">For each product change, Actorly looks at Shopify's own activity for the same product at the same time. If one person or app clearly lines up, you see their name with how sure Actorly is. If nothing lines up, you see unknown, and it stays that way.</p>
+      <div style="border-radius:18px; box-shadow:0 0 0 1px #E3E3E3; overflow:hidden; font-family:Inter,-apple-system,'Segoe UI',sans-serif; font-size:15px; color:#303030">
+        <div style="display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); padding:12px 18px; background:#F7F7F7; font-size:13px; font-weight:600; color:#616161"><span>Change</span><span>Who</span></div>
+        <div style="display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); padding:13px 18px; border-top:1px solid #EBEBEB"><span>Runner One · status Active → Draft</span><span>Jordan O. <span style="background:#E0F0FF; color:#00527C; padding:2px 8px; border-radius:999px; font-size:12px; font-weight:600">Likely</span></span></div>
+        <div style="display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); padding:13px 18px; border-top:1px solid #EBEBEB"><span>Instant Camera · tags rewritten</span><span>Bulk Editor app <span style="background:#E0F0FF; color:#00527C; padding:2px 8px; border-radius:999px; font-size:12px; font-weight:600">Likely</span></span></div>
+        <div style="display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); padding:13px 18px; border-top:1px solid #EBEBEB"><span>Field Watch · title edited</span><span style="color:#616161">Unknown</span></div>
+      </div>
+      <p style="margin:0">This works for edits made the normal way in Shopify, so your team doesn't need to use a special editor for changes to be matched.</p>
+      <h2 id="a4" style="margin:24px 0 0; font-variation-settings:'wdth' 100; font-weight:700; font-size:34px; line-height:1.05; letter-spacing:-.04em; color:#12100E; scroll-margin-top:110px">What to do today</h2>
+      <p style="margin:0">If a product changed recently and you don't know why, check with your team and the apps you've installed in the last few days. Then install a change history so the next time it happens, you have the answer: the old value, the new value, when, and who when Shopify reports it.</p>
+    </article>
+    <aside data-art-side style="position:sticky; top:110px; align-self:start; display:flex; flex-direction:column; gap:18px">
+      <div style="padding:22px; border-radius:22px; background:#F2EFE9; display:flex; flex-direction:column; gap:6px; font-size:15px"><span style="font-size:13px; font-weight:700; color:#6B645B; margin-bottom:6px">On this page</span><a href="#a1" style="padding:5px 0">What Shopify keeps</a><a href="#a2" style="padding:5px 0">Why "who" is hard</a><a href="#a3" style="padding:5px 0">How Actorly works it out</a><a href="#a4" style="padding:5px 0">What to do today</a></div>
+      <div style="padding:22px; border-radius:22px; background:#12100E; color:#F2EFE9; display:flex; flex-direction:column; gap:14px"><span style="font-size:19px; font-weight:700; line-height:1.25">See who changed your products from today.</span><a href="Actorly Home.dc.html#install" style="height:46px; border-radius:999px; background:#FF4A1A; color:#12100E; font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center" style-hover="background:#F2EFE9; color:#12100E">Install free</a></div>
+      <div style="padding:22px; border-radius:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:10px; font-size:15px"><span style="font-size:13px; font-weight:700; color:#6B645B">Ask an AI to summarise</span><span style="display:flex; flex-wrap:wrap; gap:6px"><a href="https://chatgpt.com/" style="padding:6px 12px; border-radius:999px; background:#F2EFE9">ChatGPT</a><a href="https://claude.ai/" style="padding:6px 12px; border-radius:999px; background:#F2EFE9">Claude</a><a href="https://gemini.google.com/" style="padding:6px 12px; border-radius:999px; background:#F2EFE9">Gemini</a><a href="https://www.perplexity.ai/" style="padding:6px 12px; border-radius:999px; background:#F2EFE9">Perplexity</a></span></div>
+    </aside>
+  </div>
+</section>
+
+<section style="padding:110px 24px">
+  <div style="max-width:1180px; margin:0 auto; display:flex; flex-direction:column; gap:22px">
+    <h2 style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(30px,3.6vw,52px); letter-spacing:-.05em">Keep reading</h2>
+    <div data-mk-stagger="0.08" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:16px">
+      <a href="Actorly Article.dc.html" style="background:#FFF; border-radius:22px; box-shadow:0 0 0 1px #DDD6CA; padding:24px; display:flex; flex-direction:column; gap:8px; color:#12100E" style-hover="box-shadow:0 0 0 1.5px #12100E; color:#12100E"><span style="font-size:14px; font-weight:650; color:#A32C00">Platform</span><span style="font-size:20px; font-weight:700; line-height:1.25">Does Shopify keep a product change history?</span></a>
+      <a href="Actorly Article.dc.html" style="background:#FFF; border-radius:22px; box-shadow:0 0 0 1px #DDD6CA; padding:24px; display:flex; flex-direction:column; gap:8px; color:#12100E" style-hover="box-shadow:0 0 0 1.5px #12100E; color:#12100E"><span style="font-size:14px; font-weight:650; color:#A32C00">Investigation</span><span style="font-size:20px; font-weight:700; line-height:1.25">An app changed my products. How do I find out which?</span></a>
+      <a href="Actorly Article.dc.html" style="background:#FFF; border-radius:22px; box-shadow:0 0 0 1px #DDD6CA; padding:24px; display:flex; flex-direction:column; gap:8px; color:#12100E" style-hover="box-shadow:0 0 0 1.5px #12100E; color:#12100E"><span style="font-size:14px; font-weight:650; color:#A32C00">Recovery</span><span style="font-size:20px; font-weight:700; line-height:1.25">Why a restore should be checked afterwards</span></a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,820px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { copied: false };
+  renderVals() {
+    return { copyLabel: this.state.copied ? 'Link copied' : 'Copy link', copy: () => { try { navigator.clipboard.writeText(location.href); } catch (e) {} this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 1800); } };
+  }
+}
+</script>
+</body>
+</html>

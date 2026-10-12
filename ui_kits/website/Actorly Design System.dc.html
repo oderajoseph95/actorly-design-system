@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Actorly · Design system</title>
+<link rel="icon" href="assets/actorly-icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F2EFE9;color:#12100E;font-family:Archivo,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}a{color:#A32C00}a:hover{color:#12100E}</style>
+</helmet>
+<div role="note" style="background:#12100E; color:#F2EFE9; font-size:13px; line-height:1.4; text-align:center; padding:8px 16px; font-family:Archivo, Helvetica, sans-serif">Layout specimen. Placeholder copy, not published Actorly claims. Nothing here is live or can be installed or bought.</div>
+
+<svg width="0" height="0" style="position:absolute"><symbol id="mk" viewBox="0 0 48 48"><rect x="15" y="5" width="28" height="28" rx="7" fill="currentColor" opacity=".32"></rect><rect x="5" y="15" width="28" height="28" rx="7" fill="#FF4A1A"></rect><path d="M26.5 31 H13.5 M18 26.5 L13.5 31 L18 35.5" fill="none" stroke="#12100E" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"></path></symbol></svg>
+
+<div ref="{{ root }}" style="max-width:1240px; margin:0 auto; padding:72px 24px 140px; display:flex; flex-direction:column; gap:110px">
+
+  <header style="display:flex; flex-direction:column; gap:22px">
+    <span style="display:flex; align-items:center; gap:12px"><svg width="40" height="40" style="color:#12100E"><use href="#mk"></use></svg><span style="font-weight:650; font-size:34px; letter-spacing:-.045em">actorly</span></span>
+    <h1 style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(48px,7vw,112px); line-height:.92; letter-spacing:-.058em">Design system.</h1>
+    <p style="margin:0; font-size:20px; line-height:1.55; color:#57514A; max-width:640px">Everything the site and the app's marketing surfaces use: the logo, colour, type, shapes, components, motion and copy rules. The homepage is the reference build.</p>
+    <nav style="display:flex; flex-wrap:wrap; gap:8px; margin-top:6px">
+      <a href="#logo" style="height:38px; padding:0 16px; border-radius:999px; background:#FFF; box-shadow:0 0 0 1px #DDD6CA; color:#12100E; font-size:15px; font-weight:600; display:flex; align-items:center">Logo</a>
+      <a href="#colour" style="height:38px; padding:0 16px; border-radius:999px; background:#FFF; box-shadow:0 0 0 1px #DDD6CA; color:#12100E; font-size:15px; font-weight:600; display:flex; align-items:center">Colour</a>
+      <a href="#type" style="height:38px; padding:0 16px; border-radius:999px; background:#FFF; box-shadow:0 0 0 1px #DDD6CA; color:#12100E; font-size:15px; font-weight:600; display:flex; align-items:center">Type</a>
+      <a href="#shape" style="height:38px; padding:0 16px; border-radius:999px; background:#FFF; box-shadow:0 0 0 1px #DDD6CA; color:#12100E; font-size:15px; font-weight:600; display:flex; align-items:center">Shape and depth</a>
+      <a href="#components" style="height:38px; padding:0 16px; border-radius:999px; background:#FFF; box-shadow:0 0 0 1px #DDD6CA; color:#12100E; font-size:15px; font-weight:600; display:flex; align-items:center">Components</a>
+      <a href="#motion" style="height:38px; padding:0 16px; border-radius:999px; background:#FFF; box-shadow:0 0 0 1px #DDD6CA; color:#12100E; font-size:15px; font-weight:600; display:flex; align-items:center">Motion</a>
+      <a href="#copy" style="height:38px; padding:0 16px; border-radius:999px; background:#FFF; box-shadow:0 0 0 1px #DDD6CA; color:#12100E; font-size:15px; font-weight:600; display:flex; align-items:center">Copy</a>
+    </nav>
+  </header>
+
+  <section id="logo" style="display:flex; flex-direction:column; gap:28px">
+    <h2 style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5vw,76px); line-height:.94; letter-spacing:-.055em">Logo.</h2>
+    <p style="margin:0; font-size:18px; line-height:1.6; color:#57514A; max-width:64ch">Two versions of a thing: the older one behind, the current one in front with a way back. The wordmark is lowercase Archivo at weight 650.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr)); gap:16px">
+      <div style="background:#FFF; border-radius:26px; height:300px; display:flex; align-items:center; justify-content:center; gap:20px; box-shadow:0 0 0 1px #DDD6CA"><svg width="96" height="96" style="color:#12100E"><use href="#mk"></use></svg><span style="font-weight:650; font-size:76px; letter-spacing:-.05em">actorly</span></div>
+      <div style="background:#12100E; color:#F2EFE9; border-radius:26px; height:300px; display:flex; align-items:center; justify-content:center; gap:20px"><svg width="96" height="96" style="color:#F2EFE9"><use href="#mk"></use></svg><span style="font-weight:650; font-size:76px; letter-spacing:-.05em">actorly</span></div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:16px">
+      <div style="background:#FFF; border-radius:22px; padding:24px; display:flex; flex-direction:column; gap:16px; box-shadow:0 0 0 1px #DDD6CA"><div style="display:flex; gap:14px; align-items:flex-end"><div style="width:96px; height:96px; border-radius:22px; background:#12100E; display:flex; align-items:center; justify-content:center"><svg width="60" height="60" style="color:#F2EFE9"><use href="#mk"></use></svg></div><div style="width:60px; height:60px; border-radius:14px; background:#12100E; display:flex; align-items:center; justify-content:center"><svg width="38" height="38" style="color:#F2EFE9"><use href="#mk"></use></svg></div></div><span style="font-size:15px; font-weight:600">App icon</span><span style="font-size:14px; color:#57514A; line-height:1.5">Ink tile, mark at 62% of the tile, corner radius 23%. File: assets/actorly-app-icon.svg</span></div>
+      <div style="background:#FFF; border-radius:22px; padding:24px; display:flex; flex-direction:column; gap:16px; box-shadow:0 0 0 1px #DDD6CA"><div style="display:flex; gap:16px; align-items:flex-end; height:96px"><svg width="48" height="48" style="color:#12100E"><use href="#mk"></use></svg><svg width="32" height="32" style="color:#12100E"><use href="#mk"></use></svg><svg width="16" height="16" style="color:#12100E"><use href="#mk"></use></svg></div><span style="font-size:15px; font-weight:600">Sizes</span><span style="font-size:14px; color:#57514A; line-height:1.5">Smallest is 16px (favicon, admin sidebar). Below 24px keep the arrow; never thin it.</span></div>
+      <div style="background:#FFF; border-radius:22px; padding:24px; display:flex; flex-direction:column; gap:16px; box-shadow:0 0 0 1px #DDD6CA"><div style="height:96px; display:flex; align-items:center"><div style="padding:18px; outline:1.5px dashed #FF4A1A; outline-offset:0"><svg width="56" height="56" style="color:#12100E; display:block"><use href="#mk"></use></svg></div></div><span style="font-size:15px; font-weight:600">Clear space</span><span style="font-size:14px; color:#57514A; line-height:1.5">Keep one third of the mark's width clear on every side.</span></div>
+      <div style="background:#FFF; border-radius:22px; padding:24px; display:flex; flex-direction:column; gap:16px; box-shadow:0 0 0 1px #DDD6CA"><div style="height:96px; display:flex; align-items:center; gap:18px"><svg width="44" height="44" style="color:#12100E; transform:rotate(18deg)"><use href="#mk"></use></svg><svg width="44" height="44" style="color:#12100E; filter:hue-rotate(160deg)"><use href="#mk"></use></svg><svg width="64" height="40" viewBox="0 0 48 48" preserveAspectRatio="none" style="color:#12100E"><use href="#mk"></use></svg></div><span style="font-size:15px; font-weight:600">Don't</span><span style="font-size:14px; color:#57514A; line-height:1.5">Rotate it, recolour the front card, stretch it, or put it on a busy photo.</span></div>
+    </div>
+  </section>
+
+  <section id="colour" style="display:flex; flex-direction:column; gap:28px">
+    <h2 style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5vw,76px); line-height:.94; letter-spacing:-.055em">Colour.</h2>
+    <p style="margin:0; font-size:18px; line-height:1.6; color:#57514A; max-width:64ch">Paper, white and ink sections alternate down the page; two ink sections never touch. Ember is the only accent: changes, stamps, the "now" marker and the main call to action on ink.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr)); gap:12px">
+      <div style="border-radius:20px; overflow:hidden; box-shadow:0 0 0 1px #DDD6CA; background:#FFF"><div style="height:110px; background:#F2EFE9"></div><div style="padding:14px 16px; font-size:14px; line-height:1.5"><b style="font-weight:650">Paper</b><br>#F2EFE9 · page ground</div></div>
+      <div style="border-radius:20px; overflow:hidden; box-shadow:0 0 0 1px #DDD6CA; background:#FFF"><div style="height:110px; background:#FFFFFF; border-bottom:1px solid #EFEBE4"></div><div style="padding:14px 16px; font-size:14px; line-height:1.5"><b style="font-weight:650">White</b><br>#FFFFFF · sections, cards</div></div>
+      <div style="border-radius:20px; overflow:hidden; box-shadow:0 0 0 1px #DDD6CA; background:#FFF"><div style="height:110px; background:#12100E"></div><div style="padding:14px 16px; font-size:14px; line-height:1.5"><b style="font-weight:650">Ink</b><br>#12100E · text, buttons, ink sections</div></div>
+      <div style="border-radius:20px; overflow:hidden; box-shadow:0 0 0 1px #DDD6CA; background:#FFF"><div style="height:110px; background:#FF4A1A"></div><div style="padding:14px 16px; font-size:14px; line-height:1.5"><b style="font-weight:650">Ember</b><br>#FF4A1A · the one accent, fills only</div></div>
+      <div style="border-radius:20px; overflow:hidden; box-shadow:0 0 0 1px #DDD6CA; background:#FFF"><div style="height:110px; background:#A32C00"></div><div style="padding:14px 16px; font-size:14px; line-height:1.5"><b style="font-weight:650">Ember text</b><br>#A32C00 · ember as text on light</div></div>
+      <div style="border-radius:20px; overflow:hidden; box-shadow:0 0 0 1px #DDD6CA; background:#FFF"><div style="height:110px; background:#57514A"></div><div style="padding:14px 16px; font-size:14px; line-height:1.5"><b style="font-weight:650">Body</b><br>#57514A · ledes and body</div></div>
+      <div style="border-radius:20px; overflow:hidden; box-shadow:0 0 0 1px #DDD6CA; background:#FFF"><div style="height:110px; background:#6B645B"></div><div style="padding:14px 16px; font-size:14px; line-height:1.5"><b style="font-weight:650">Muted</b><br>#6B645B · meta, captions</div></div>
+      <div style="border-radius:20px; overflow:hidden; box-shadow:0 0 0 1px #DDD6CA; background:#FFF"><div style="height:110px; background:#DDD6CA"></div><div style="padding:14px 16px; font-size:14px; line-height:1.5"><b style="font-weight:650">Line</b><br>#DDD6CA · rings and dividers</div></div>
+      <div style="border-radius:20px; overflow:hidden; box-shadow:0 0 0 1px #DDD6CA; background:#FFF"><div style="height:110px; background:#C9C1B5"></div><div style="padding:14px 16px; font-size:14px; line-height:1.5"><b style="font-weight:650">Body on ink</b><br>#C9C1B5</div></div>
+      <div style="border-radius:20px; overflow:hidden; box-shadow:0 0 0 1px #DDD6CA; background:#FFF"><div style="height:110px; display:grid; grid-template-columns:1fr 1fr"><span style="background:#FEE9E8"></span><span style="background:#CDFEE1"></span></div><div style="padding:14px 16px; font-size:14px; line-height:1.5"><b style="font-weight:650">Was / now</b><br>#FEE9E8 · #CDFEE1, inside admin mocks only</div></div>
+    </div>
+  </section>
+
+  <section id="type" style="display:flex; flex-direction:column; gap:28px">
+    <h2 style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5vw,76px); line-height:.94; letter-spacing:-.055em">Type.</h2>
+    <p style="margin:0; font-size:18px; line-height:1.6; color:#57514A; max-width:64ch">Archivo for everything. No monospace on the site. Inside Shopify admin mock-ups use the system UI font, as Polaris does.</p>
+    <div style="background:#FFF; border-radius:26px; box-shadow:0 0 0 1px #DDD6CA; overflow:hidden">
+      <div style="display:grid; grid-template-columns:200px minmax(0,1fr); gap:24px; padding:28px; border-bottom:1px solid #EFEBE4; align-items:center"><span style="font-size:14px; color:#6B645B; line-height:1.5">H1 · 700 · −0.058em<br>clamp(34px, 5.4vw, 104px) · lh .92</span><span style="font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5.4vw,96px); line-height:.92; letter-spacing:-.058em">Every change, on the record.</span></div>
+      <div style="display:grid; grid-template-columns:200px minmax(0,1fr); gap:24px; padding:28px; border-bottom:1px solid #EFEBE4; align-items:center"><span style="font-size:14px; color:#6B645B; line-height:1.5">H2 · 700 · −0.055em<br>clamp(40px, 6.2vw, 100px) · lh .94</span><span style="font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(36px,4.6vw,72px); line-height:.94; letter-spacing:-.055em">Not just products.</span></div>
+      <div style="display:grid; grid-template-columns:200px minmax(0,1fr); gap:24px; padding:28px; border-bottom:1px solid #EFEBE4; align-items:center"><span style="font-size:14px; color:#6B645B; line-height:1.5">Stat · 700 · −0.06em<br>clamp(64px, 11vw, 190px) · tabular</span><span style="font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(56px,8vw,140px); line-height:.9; letter-spacing:-.06em; font-variant-numeric:tabular-nums">1,284</span></div>
+      <div style="display:grid; grid-template-columns:200px minmax(0,1fr); gap:24px; padding:28px; border-bottom:1px solid #EFEBE4; align-items:center"><span style="font-size:14px; color:#6B645B; line-height:1.5">Card title · 700<br>20–22px · −0.02em</span><span style="font-size:22px; font-weight:700; letter-spacing:-.02em">Restore</span></div>
+      <div style="display:grid; grid-template-columns:200px minmax(0,1fr); gap:24px; padding:28px; border-bottom:1px solid #EFEBE4; align-items:center"><span style="font-size:14px; color:#6B645B; line-height:1.5">Lede · 400<br>clamp(17px, 1.4vw, 20px) · lh 1.55 · max 640px</span><span style="font-size:20px; line-height:1.55; color:#57514A; max-width:640px">Shopify shows the current value of most fields, not the earlier ones. Actorly records each version it sees, so you can see what it was and, for select fields, put it back.</span></div>
+      <div style="display:grid; grid-template-columns:200px minmax(0,1fr); gap:24px; padding:28px; align-items:center"><span style="font-size:14px; color:#6B645B; line-height:1.5">Body · 400<br>15–17px · lh 1.6 · max 64ch</span><span style="font-size:16px; line-height:1.6; color:#57514A; max-width:64ch">Headlines are sentence case, end with a full stop and break into two lines by hand where the meaning breaks. No eyebrow labels above headlines.</span></div>
+    </div>
+  </section>
+
+  <section id="shape" style="display:flex; flex-direction:column; gap:28px">
+    <h2 style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5vw,76px); line-height:.94; letter-spacing:-.055em">Shape and depth.</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:16px">
+      <div style="background:#FFF; border-radius:999px; height:64px; box-shadow:0 0 0 1px #DDD6CA; display:flex; align-items:center; justify-content:center; font-size:14px">999px · buttons, pills, nav</div>
+      <div style="background:#FFF; border-radius:28px; height:64px; box-shadow:0 0 0 1px #DDD6CA; display:flex; align-items:center; justify-content:center; font-size:14px">28px · stages, big panels</div>
+      <div style="background:#FFF; border-radius:24px; height:64px; box-shadow:0 0 0 1px #DDD6CA; display:flex; align-items:center; justify-content:center; font-size:14px">22–26px · cards</div>
+      <div style="background:#FFF; border-radius:12px; height:64px; box-shadow:0 0 0 1px #DDD6CA; display:flex; align-items:center; justify-content:center; font-size:14px">12px · stamps, inner tiles</div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:24px">
+      <div style="background:#FFF; border-radius:24px; height:140px; box-shadow:0 0 0 1px #DDD6CA; padding:20px; font-size:14px; line-height:1.5"><b style="font-weight:650">Card</b><br>A 1px ring, no drop shadow. 0 0 0 1px #DDD6CA</div>
+      <div style="background:#FFF; border-radius:24px; height:140px; box-shadow:0 0 0 1px #DDD6CA, 0 40px 80px -40px rgba(18,16,14,.35); padding:20px; font-size:14px; line-height:1.5"><b style="font-weight:650">Demo frame</b><br>Ring plus 0 40px 80px −40px rgba(18,16,14,.35)</div>
+      <div style="background:#FFF; border-radius:24px; height:140px; box-shadow:0 0 0 1.5px #FF4A1A; padding:20px; font-size:14px; line-height:1.5"><b style="font-weight:650">Active</b><br>1.5px ember ring for the thing that just changed</div>
+    </div>
+  </section>
+
+  <section id="components" style="display:flex; flex-direction:column; gap:28px">
+    <h2 style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5vw,76px); line-height:.94; letter-spacing:-.055em">Components.</h2>
+    <div style="background:#FFF; border-radius:26px; box-shadow:0 0 0 1px #DDD6CA; padding:32px; display:flex; flex-direction:column; gap:32px">
+      <div style="display:flex; flex-direction:column; gap:14px"><span style="font-size:14px; font-weight:650; color:#6B645B">Buttons · verb first · 52–56px on hero, 42–50px elsewhere</span>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center">
+          <span style="height:52px; padding:0 26px; border-radius:999px; background:#12100E; color:#F2EFE9; font-size:16px; font-weight:600; display:flex; align-items:center; gap:10px" style-hover="background:#FF4A1A; color:#12100E; cursor:pointer"><span data-shopify-glyph-slot aria-hidden="true" style="display:inline-block; width:16px; height:16px; flex:none"></span>Install free on Shopify</span>
+          <span style="height:52px; padding:0 22px; border-radius:999px; box-shadow:inset 0 0 0 1px #CFC6B7; font-size:16px; font-weight:600; display:flex; align-items:center" style-hover="box-shadow:inset 0 0 0 1.5px #12100E; cursor:pointer">See how it works</span>
+          <span style="height:52px; padding:0 26px; border-radius:999px; background:#FF4A1A; color:#12100E; font-size:16px; font-weight:700; display:flex; align-items:center">Install free, upgrade anytime</span>
+          <span style="font-size:15px; color:#6B645B">Hover: ink → ember, outline → ink ring. 0.2s ease.</span>
+        </div></div>
+      <div style="display:flex; flex-direction:column; gap:14px"><span style="font-size:14px; font-weight:650; color:#6B645B">Change stamp · lands with Spring, flies into a history row</span>
+        <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center">
+          <span style="background:#FF4A1A; color:#12100E; border-radius:12px; padding:9px 13px; font-size:14px; font-weight:700; line-height:1.3; box-shadow:0 14px 30px -14px rgba(18,16,14,.5); transform:rotate(-4deg)">Price $129 → $89<span style="display:block; font-weight:500">2:32 PM · who: unknown</span></span>
+          <span style="background:#FF4A1A; color:#12100E; border-radius:12px; padding:9px 13px; font-size:14px; font-weight:700; line-height:1.3; box-shadow:0 14px 30px -14px rgba(18,16,14,.5); transform:rotate(3deg)">Status Active → Draft<span style="display:block; font-weight:500">9:12 AM · Jordan O., staff, likely</span></span>
+        </div></div>
+      <div style="display:flex; flex-direction:column; gap:14px"><span style="font-size:14px; font-weight:650; color:#6B645B">Who made it · always next to how sure Actorly is</span>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; font-family:Inter,-apple-system,'Segoe UI',sans-serif">
+          <span style="background:#E0F0FF; color:#00527C; padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600">Likely</span>
+          <span style="background:#EBEBEB; color:#616161; padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600">Unknown</span>
+          <span style="background:#F1F1F1; color:#616161; padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600">Possible</span>
+        </div></div>
+      <div style="display:flex; flex-direction:column; gap:14px"><span style="font-size:14px; font-weight:650; color:#6B645B">History row</span>
+        <div style="border-radius:18px; box-shadow:0 0 0 1px #DDD6CA; overflow:hidden; max-width:900px"><div style="height:52px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 84px; gap:14px; align-items:center; padding:0 22px; font-size:15px; background:rgba(255,74,26,.1)"><span><b style="font-weight:600">Studio Headphones</b> · price $129.00 → $89.00</span><span style="color:#6B645B">Unknown</span><span style="color:#6B645B; text-align:right">2:32 PM</span></div><div style="height:52px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 84px; gap:14px; align-items:center; padding:0 22px; font-size:15px; border-top:1px solid #EFEBE4"><span><b style="font-weight:600">Runner One</b> · status Active → Draft</span><span>Jordan O. · staff · likely</span><span style="color:#6B645B; text-align:right">9:12 AM</span></div></div>
+        <span style="font-size:14px; color:#57514A">A new row flashes ember at 14% and fades to white over 1.4s.</span></div>
+      <div style="display:flex; flex-direction:column; gap:14px"><span style="font-size:14px; font-weight:650; color:#6B645B">Shopify admin mock-ups</span>
+        <span style="font-size:15px; color:#57514A; line-height:1.6; max-width:70ch">Only inside admin frames: #1A1A1A top bar, #F1F1F1 ground, #EBEBEB sidebar, white cards at 12px radius, #303030 text, system UI font. Our own palette never goes inside the frame except the Actorly mark.</span></div>
+    </div>
+  </section>
+
+  <section id="motion" style="display:flex; flex-direction:column; gap:28px">
+    <h2 style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5vw,76px); line-height:.94; letter-spacing:-.055em">Motion.</h2>
+    <p style="margin:0; font-size:18px; line-height:1.6; color:#57514A; max-width:64ch">Each section has its own move. One pinned scroll scene per page (the hero), plus at most two more. Transform and opacity only. Loops pause off screen and stop when clicked. Reduced motion shows the finished state. Engine: motion-kit.js with Lenis.</p>
+    <div style="background:#FFF; border-radius:26px; box-shadow:0 0 0 1px #DDD6CA; padding:28px; display:flex; flex-direction:column; gap:18px">
+      <sc-for list="{{ eases }}" as="e" hint-placeholder-count="5">
+        <div style="display:grid; grid-template-columns:200px minmax(0,1fr); gap:20px; align-items:center"><span style="font-size:14px; line-height:1.4"><b style="font-weight:650">{{ e.name }}</b><br><span style="color:#6B645B">{{ e.spec }}</span></span><div style="position:relative; height:28px; border-radius:999px; background:#F2EFE9"><span data-ease="{{ e.curve }}" data-dur="{{ e.dur }}" style="position:absolute; left:4px; top:4px; width:20px; height:20px; border-radius:50%; background:#FF4A1A"></span></div></div>
+      </sc-for>
+      <span style="font-size:14px; color:#57514A">Headlines rise line by line from a mask (110% → 0, 1.15s Settle, 90ms apart; mask padding .22em for Archivo). Fades rise 16px; cards 20px, staggered 70–100ms.</span>
+    </div>
+  </section>
+
+  <section id="copy" style="display:flex; flex-direction:column; gap:28px">
+    <h2 style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5vw,76px); line-height:.94; letter-spacing:-.055em">Copy.</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr)); gap:16px">
+      <div style="background:#FFF; border-radius:24px; box-shadow:0 0 0 1px #DDD6CA; padding:26px; display:flex; flex-direction:column; gap:12px"><span style="font-size:18px; font-weight:700">Say</span><span style="font-size:15px; line-height:1.6; color:#57514A">"Change history." "The old value and the new value." "Who made it, when Shopify reports it." "Put select fields back, verified." "Unknown" when Shopify doesn't say. Numbers over adjectives; example figures labelled "Example store".</span></div>
+      <div style="background:#FFF; border-radius:24px; box-shadow:0 0 0 1px #DDD6CA; padding:26px; display:flex; flex-direction:column; gap:12px"><span style="font-size:18px; font-weight:700">Don't say</span><span style="font-size:15px; line-height:1.6; color:#57514A">"One-click restore". "Who made every change." "Store activity log" (Shopify's own feature). Anything about sales or revenue. Email or Slack alerts, bulk restore or anything not built yet. Never knock Shopify or a competitor.</span></div>
+      <div style="background:#FFF; border-radius:24px; box-shadow:0 0 0 1px #DDD6CA; padding:26px; display:flex; flex-direction:column; gap:12px"><span style="font-size:18px; font-weight:700">Source of truth</span><span style="font-size:15px; line-height:1.6; color:#57514A">Claims come from the product's coverage table and the product team's facts pack, never from a design file. Quote counts from the coverage table, never a typed number. Who-made-it is claimed for product changes only; restores are named only for fields the product has proven end to end.</span></div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.root = React.createRef(); }
+  renderVals() {
+    return { root: this.root, eases: [
+      { name: 'Settle', spec: '.16,1,.3,1 · 0.9–1.2s · arriving', curve: 'cubic-bezier(.16,1,.3,1)', dur: '1.1' },
+      { name: 'Travel', spec: '.65,0,.35,1 · 0.7s · A to B', curve: 'cubic-bezier(.65,0,.35,1)', dur: '.7' },
+      { name: 'Spring', spec: '.34,1.56,.64,1 · 0.6s · stamps landing', curve: 'cubic-bezier(.34,1.56,.64,1)', dur: '.6' },
+      { name: 'Gravity', spec: '.55,0,.85,.35 · 0.62s · falling', curve: 'cubic-bezier(.55,0,.85,.35)', dur: '.62' },
+      { name: 'Fast', spec: 'ease · 0.2–0.3s · hover, colour', curve: 'ease', dur: '.25' }
+    ] };
+  }
+  componentDidMount() {
+    const go = () => {
+      if (this._dead || !this.root.current) return;
+      this.root.current.querySelectorAll('[data-ease]').forEach(d => {
+        const w = d.parentElement.clientWidth - 28, out = d._out = !d._out;
+        d.style.transition = `transform ${d.dataset.dur}s ${d.dataset.ease}`; d.style.transform = `translateX(${out ? w : 0}px)`;
+      });
+      this._t = setTimeout(go, 1700);
+    };
+    this._t = setTimeout(go, 400);
+  }
+  componentWillUnmount() { this._dead = true; clearTimeout(this._t); }
+}
+</script>
+</body>
+</html>

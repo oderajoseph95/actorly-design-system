@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Actorly: Store Change History for Shopify</title><link rel="canonical" href="https://actorlyai.com/"><meta property="og:type" content="website"><meta property="og:site_name" content="Actorly"><meta property="og:url" content="https://actorlyai.com/"><meta property="og:title" content="Actorly: Store Change History for Shopify"><meta property="og:description" content="Searchable history of the changes in your Shopify store, with before and after values, who made it when Shopify reports it, and verified restores. Free plan."><meta name="twitter:card" content="summary_large_image"><link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
+<meta name="description" content="Searchable history of the changes in your Shopify store, with before and after values, who made it when Shopify reports it, and verified restores. Free plan.">
+<link rel="icon" href="assets/actorly-icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" integrity="sha384-B2WBjDzEjJpYvhmi2UyEn7rektqkf5suS6sNoyyrf0EBAwBHdkiXxIlU0V5Ru2ed" crossorigin="anonymous"></script>
+<script src="./motion-kit.js"></script>
+<style>
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:#F2EFE9;color:#12100E;font-family:Archivo,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}a:hover{color:#A32C00}
+details summary{list-style:none}details summary::-webkit-details-marker{display:none}
+details[open] [data-plus]{transform:rotate(45deg)}
+::selection{background:#FF4A1A;color:#12100E}
+@keyframes blink{50%{opacity:0}}
+@media (max-width:520px){[data-hero-secondary]{display:none!important}}
+[data-mk-mask]{padding-bottom:.22em!important;margin-bottom:-.22em!important}
+@media (max-width:820px){[data-nav-links]{display:none!important}}
+</style>
+</helmet>
+
+<div ref="{{ root }}" style="overflow-x:clip">
+
+<dc-import name="SiteNav" home="{{ true }}" hint-size="100%,86px"></dc-import>
+
+<div id="top" data-hero data-mk-scene data-screen-label="01 Hero" style="height:370vh; position:relative">
+  <div data-stage style="position:sticky; top:0; height:100vh; overflow:hidden">
+    <div data-h-copy style="position:absolute; left:0; right:0; top:max(15vh,112px); padding:0 24px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:22px; z-index:3">
+      <h1 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,min(5.4vw,10.5vh),104px); line-height:.92; letter-spacing:-.058em">
+        <span data-mk-mask><span data-mk-line style="white-space:nowrap">Every change in your</span></span>
+        <span data-mk-mask><span data-mk-line style="white-space:nowrap"><span data-shopify-glyph-slot aria-hidden="true" style="display:inline-block; width:.68em; height:.78em; vertical-align:-.06em; margin-right:.12em"></span>Shopify store, on the record.</span></span>
+      </h1>
+      <p data-mk-fade data-mk-delay="0.35" style="margin:0; font-size:clamp(17px,1.4vw,20px); line-height:1.5; color:#57514A; max-width:660px; text-wrap:pretty">Your team, your apps and your imports change the store all day. Actorly keeps a searchable history of every change, with the old value, the new value and who made it when Shopify says. Put select fields back, and Actorly checks the store to confirm it took.</p>
+      <div data-mk-fade data-mk-delay="0.5" style="display:flex; gap:10px; flex-wrap:nowrap; justify-content:center">
+        <a href="#install" data-mk-magnet style="height:52px; padding:0 26px; border-radius:999px; background:#12100E; color:#F2EFE9; font-size:16px; font-weight:600; display:flex; align-items:center; gap:10px; white-space:nowrap" style-hover="background:#FF4A1A; color:#12100E"><span data-shopify-glyph-slot aria-hidden="true" style="display:inline-block; width:17px; height:17px; flex:none"></span>Install free on Shopify</a>
+        <a href="#how" data-hero-secondary style="height:52px; padding:0 22px; border-radius:999px; box-shadow:inset 0 0 0 1px #CFC6B7; font-size:16px; font-weight:600; display:flex; align-items:center; white-space:nowrap">See how it works</a>
+      </div>
+    </div>
+
+    <div data-h-clockbox style="position:absolute; left:0; right:0; top:max(10vh,90px); text-align:center; opacity:0; z-index:2">
+      <div style="font-size:15px; font-weight:600; color:#6B645B">Northwind Goods at</div>
+      <div data-h-clock style="font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(44px,min(6vw,9vh),88px); line-height:1; letter-spacing:-.05em; font-variant-numeric:tabular-nums">7:30 AM</div>
+      <div data-h-note style="font-size:16px; font-weight:600; color:#A32C00; margin-top:8px; height:20px">A normal day</div>
+    </div>
+
+    <div data-h-card style="position:absolute; left:0; top:0; width:280px; z-index:1; will-change:transform; container-type:inline-size">
+      <div data-h-img style="height:174px; border-radius:20px; overflow:hidden; background:#E9E4DA"><div role="img" aria-label="Product photo placeholder" style="width:100%; height:100%; background:#E9E4DA; display:block"></div></div>
+      <div style="padding:10px 4px 0; font-size:15px; line-height:1.3"><span style="display:block; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Studio Headphones</span><span style="display:block; position:relative; height:20px; margin-top:2px; font-variant-numeric:tabular-nums"><span data-before style="position:absolute; left:0; white-space:nowrap">$129.00</span><span data-after style="position:absolute; left:0; white-space:nowrap; opacity:0; color:#A32C00; font-weight:600">$89.00</span></div>
+    </div>
+    <div data-h-card style="position:absolute; left:0; top:0; width:280px; z-index:1; will-change:transform; container-type:inline-size">
+      <div data-h-img style="height:174px; border-radius:20px; overflow:hidden; background:#E9E4DA"><div role="img" aria-label="Product photo placeholder" style="width:100%; height:100%; background:#E9E4DA; display:block"></div></div>
+      <div style="padding:10px 4px 0; font-size:15px; line-height:1.3"><span style="display:block; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Runner One</span><span style="display:block; position:relative; height:20px; margin-top:2px;"><span data-before style="position:absolute; left:0; white-space:nowrap">Active</span><span data-after style="position:absolute; left:0; white-space:nowrap; opacity:0; color:#A32C00; font-weight:600; white-space:nowrap">Hidden from store</span></div>
+    </div>
+    <div data-h-card style="position:absolute; left:0; top:0; width:280px; z-index:1; will-change:transform; container-type:inline-size">
+      <div data-h-img style="height:174px; border-radius:20px; overflow:hidden; background:#E9E4DA"><div role="img" aria-label="Product photo placeholder" style="width:100%; height:100%; background:#E9E4DA; display:block"></div></div>
+      <div style="padding:10px 4px 0; font-size:15px; line-height:1.3"><span style="display:block; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Field Watch</span><span style="display:block; position:relative; height:20px; margin-top:2px;"><span data-before style="position:absolute; left:0; white-space:nowrap; white-space:nowrap">12 in stock</span><span data-after style="position:absolute; left:0; white-space:nowrap; opacity:0; color:#A32C00; font-weight:600">Sold out</span></div>
+    </div>
+    <div data-h-card style="position:absolute; left:0; top:0; width:280px; z-index:1; will-change:transform; container-type:inline-size">
+      <div data-h-img style="height:174px; border-radius:20px; overflow:hidden; background:#F3D9A4; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:3cqw"><span style="font-variation-settings:'wdth' 100; font-weight:800; font-size:12cqw; line-height:1; letter-spacing:-.04em; border:2px dashed #12100E; border-radius:4cqw; padding:.2em .5em">SPRING20</span><span style="font-size:5.4cqw; font-weight:600">20% off everything</span></div>
+      <div style="padding:10px 4px 0; font-size:15px; line-height:1.3"><span style="display:block; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Discount</span><span style="display:block; position:relative; height:20px; margin-top:2px;"><span data-before style="position:absolute; left:0; white-space:nowrap">Active</span><span data-after style="position:absolute; left:0; white-space:nowrap; opacity:0; color:#A32C00; font-weight:600">Ended</span></div>
+    </div>
+    <div data-h-card style="position:absolute; left:0; top:0; width:280px; z-index:1; will-change:transform; container-type:inline-size">
+      <div data-h-img style="height:174px; border-radius:20px; overflow:hidden; background:#CFE3D4; display:flex; flex-direction:column; justify-content:center; padding:0 8cqw; gap:3.5cqw"><div style="display:flex; justify-content:space-between; font-size:5.4cqw; font-weight:600; background:#FFF; border-radius:4cqw; padding:3.6cqw 5cqw"><span>Standard</span><span>3–5 days</span></div><div style="display:flex; justify-content:space-between; font-size:5.4cqw; background:rgba(255,255,255,.55); border-radius:4cqw; padding:3.6cqw 5cqw"><span>Express</span><span>1–2 days</span></div></div>
+      <div style="padding:10px 4px 0; font-size:15px; line-height:1.3"><span style="display:block; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Shipping rate</span><span style="display:block; position:relative; height:20px; margin-top:2px; font-variant-numeric:tabular-nums"><span data-before style="position:absolute; left:0; white-space:nowrap">$4.95</span><span data-after style="position:absolute; left:0; white-space:nowrap; opacity:0; color:#A32C00; font-weight:600">$9.95</span></div>
+    </div>
+    <div data-h-card style="position:absolute; left:0; top:0; width:280px; z-index:1; will-change:transform; container-type:inline-size">
+      <div data-h-img style="height:174px; border-radius:20px; overflow:hidden; background:#D3DAEA; padding:5.5cqw; display:flex; flex-direction:column; gap:3cqw"><div style="height:4.5cqw; border-radius:3cqw; background:#FFF; width:40%; flex:none"></div><div style="flex:1; min-height:0; border-radius:4cqw; background:#FFF; display:flex; align-items:center; justify-content:center; font-size:5.6cqw; font-weight:700" data-theme-name>Winter collection</div><div style="display:flex; gap:3cqw; height:11cqw; flex:none"><span style="flex:1; border-radius:3cqw; background:rgba(255,255,255,.6)"></span><span style="flex:1; border-radius:3cqw; background:rgba(255,255,255,.6)"></span><span style="flex:1; border-radius:3cqw; background:rgba(255,255,255,.6)"></span></div></div>
+      <div style="padding:10px 4px 0; font-size:15px; line-height:1.3"><span style="display:block; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Live theme</span><span style="display:block; position:relative; height:20px; margin-top:2px;"><span data-before style="position:absolute; left:0; white-space:nowrap; white-space:nowrap">Dawn · Winter</span><span data-after style="position:absolute; left:0; white-space:nowrap; opacity:0; color:#A32C00; font-weight:600; white-space:nowrap">Dawn · Spring</span></div>
+    </div>
+
+    <div data-h-card style="position:absolute; left:0; top:0; width:280px; z-index:1; will-change:transform; container-type:inline-size">
+      <div data-h-img style="height:174px; border-radius:20px; overflow:hidden; background:#E9E4DA"><div role="img" aria-label="Product photo placeholder" style="width:100%; height:100%; background:#E9E4DA; display:block"></div></div>
+      <div style="padding:10px 4px 0; font-size:15px; line-height:1.3"><span style="display:block; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Instant Camera</span><span style="display:block; position:relative; height:20px; margin-top:2px"><span data-before style="position:absolute; left:0; white-space:nowrap">tags: gift, sale</span><span data-after style="position:absolute; left:0; white-space:nowrap; opacity:0; color:#A32C00; font-weight:600">tags: gift</span></span></div>
+    </div>
+    <div data-h-card style="position:absolute; left:0; top:0; width:280px; z-index:1; will-change:transform; container-type:inline-size">
+      <div data-h-img style="height:174px; border-radius:20px; overflow:hidden; background:#E2D9F0; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:2cqw"><span style="font-variation-settings:'wdth' 100; font-weight:800; font-size:13cqw; line-height:1; letter-spacing:-.04em">€ EUR</span><span style="font-size:5.4cqw; font-weight:600">Europe · 14 countries</span></div>
+      <div style="padding:10px 4px 0; font-size:15px; line-height:1.3"><span style="display:block; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Europe market</span><span style="display:block; position:relative; height:20px; margin-top:2px"><span data-before style="position:absolute; left:0; white-space:nowrap">Status Active</span><span data-after style="position:absolute; left:0; white-space:nowrap; opacity:0; color:#A32C00; font-weight:600">Status Draft</span></span></div>
+    </div>
+
+    <div data-h-stamp style="position:absolute; left:0; top:0; z-index:4; background:#FF4A1A; color:#12100E; border-radius:12px; padding:9px 13px; font-size:14px; font-weight:700; line-height:1.3; white-space:nowrap; opacity:0; box-shadow:0 14px 30px -14px rgba(18,16,14,.5)">Stock 12 → 0<span style="display:block; font-weight:500">8:00 AM · who: unknown</span></div>
+    <div data-h-stamp style="position:absolute; left:0; top:0; z-index:4; background:#FF4A1A; color:#12100E; border-radius:12px; padding:9px 13px; font-size:14px; font-weight:700; line-height:1.3; white-space:nowrap; opacity:0; box-shadow:0 14px 30px -14px rgba(18,16,14,.5)">Status Active → Draft<span style="display:block; font-weight:500">9:12 AM · Jordan O., staff, likely</span></div>
+    <div data-h-stamp style="position:absolute; left:0; top:0; z-index:4; background:#FF4A1A; color:#12100E; border-radius:12px; padding:9px 13px; font-size:14px; font-weight:700; line-height:1.3; white-space:nowrap; opacity:0; box-shadow:0 14px 30px -14px rgba(18,16,14,.5)">Rate $4.95 → $9.95<span style="display:block; font-weight:500">10:40 AM · who: unknown</span></div>
+    <div data-h-stamp style="position:absolute; left:0; top:0; z-index:4; background:#FF4A1A; color:#12100E; border-radius:12px; padding:9px 13px; font-size:14px; font-weight:700; line-height:1.3; white-space:nowrap; opacity:0; box-shadow:0 14px 30px -14px rgba(18,16,14,.5)">Tags rewritten<span style="display:block; font-weight:500">11:05 AM · Bulk Editor app, likely</span></div>
+    <div data-h-stamp style="position:absolute; left:0; top:0; z-index:4; background:#FF4A1A; color:#12100E; border-radius:12px; padding:9px 13px; font-size:14px; font-weight:700; line-height:1.3; white-space:nowrap; opacity:0; box-shadow:0 14px 30px -14px rgba(18,16,14,.5)">SPRING20 ended<span style="display:block; font-weight:500">12:00 PM · who: unknown</span></div>
+    <div data-h-stamp style="position:absolute; left:0; top:0; z-index:4; background:#FF4A1A; color:#12100E; border-radius:12px; padding:9px 13px; font-size:14px; font-weight:700; line-height:1.3; white-space:nowrap; opacity:0; box-shadow:0 14px 30px -14px rgba(18,16,14,.5)">Europe market Active → Draft<span style="display:block; font-weight:500">12:45 PM · who: unknown</span></div>
+    <div data-h-stamp style="position:absolute; left:0; top:0; z-index:4; background:#FF4A1A; color:#12100E; border-radius:12px; padding:9px 13px; font-size:14px; font-weight:700; line-height:1.3; white-space:nowrap; opacity:0; box-shadow:0 14px 30px -14px rgba(18,16,14,.5)">Theme published<span style="display:block; font-weight:500">1:15 PM · who: unknown</span></div>
+    <div data-h-stamp style="position:absolute; left:0; top:0; z-index:4; background:#FF4A1A; color:#12100E; border-radius:12px; padding:9px 13px; font-size:14px; font-weight:700; line-height:1.3; white-space:nowrap; opacity:0; box-shadow:0 14px 30px -14px rgba(18,16,14,.5)">Price $129 → $89<span style="display:block; font-weight:500">2:32 PM · who: unknown</span></div>
+
+    <div data-h-title style="position:absolute; left:0; right:0; top:0; text-align:center; opacity:0; padding:0 24px; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(30px,min(4vw,7vh),58px); line-height:1; letter-spacing:-.05em">Eight changes, all on the record.</div>
+
+    <div data-h-panel style="position:absolute; left:0; top:0; width:1180px; opacity:0; background:#FFFFFF; border-radius:24px; box-shadow:0 0 0 1px #DDD6CA, 0 40px 80px -40px rgba(18,16,14,.35); overflow:hidden; z-index:2">
+      <div style="height:52px; display:flex; align-items:center; justify-content:space-between; padding:0 22px; border-bottom:1px solid #EFEBE4; font-size:15px; font-weight:600"><span style="display:flex; align-items:center; gap:9px"><svg width="14" height="14" viewBox="0 0 48 48"><rect x="15" y="5" width="28" height="28" rx="7" fill="#12100E" opacity=".32"></rect><rect x="5" y="15" width="28" height="28" rx="7" fill="#FF4A1A"></rect><path d="M26.5 31 H13.5 M18 26.5 L13.5 31 L18 35.5" fill="none" stroke="#12100E" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Change history · today</span><span style="color:#6B645B; font-weight:500">Example store</span></div>
+      <div data-h-row style="height:48px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 84px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #EFEBE4; font-size:15px"><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis"><b style="font-weight:600">Studio Headphones</b> · price $129.00 → $89.00</span><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#6B645B;">Unknown</span><span style="opacity:0; color:#6B645B; text-align:right">2:32 PM</span></div>
+      <div data-h-row style="height:48px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 84px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #EFEBE4; font-size:15px"><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis"><b style="font-weight:600">Live theme</b> · Dawn Winter → Dawn Spring</span><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#6B645B;">Unknown</span><span style="opacity:0; color:#6B645B; text-align:right">1:15 PM</span></div>
+      <div data-h-row style="height:48px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 84px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #EFEBE4; font-size:15px"><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis"><b style="font-weight:600">Europe market</b> · status Active → Draft</span><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#6B645B;">Unknown</span><span style="opacity:0; color:#6B645B; text-align:right">12:45 PM</span></div>
+      <div data-h-row style="height:48px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 84px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #EFEBE4; font-size:15px"><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis"><b style="font-weight:600">SPRING20</b> · Active → Ended</span><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#6B645B;">Unknown</span><span style="opacity:0; color:#6B645B; text-align:right">12:00 PM</span></div>
+      <div data-h-row style="height:48px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 84px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #EFEBE4; font-size:15px"><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis"><b style="font-weight:600">Instant Camera</b> · tags gift, sale → gift</span><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Bulk Editor app · likely</span><span style="opacity:0; color:#6B645B; text-align:right">11:05 AM</span></div>
+      <div data-h-row style="height:48px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 84px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #EFEBE4; font-size:15px"><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis"><b style="font-weight:600">Standard shipping</b> · $4.95 → $9.95</span><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#6B645B;">Unknown</span><span style="opacity:0; color:#6B645B; text-align:right">10:40 AM</span></div>
+      <div data-h-row style="height:48px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 84px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #EFEBE4; font-size:15px"><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis"><b style="font-weight:600">Runner One</b> · status Active → Draft</span><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Jordan O. · staff · likely</span><span style="opacity:0; color:#6B645B; text-align:right">9:12 AM</span></div>
+      <div data-h-row style="height:48px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 84px; gap:14px; align-items:center; padding:0 22px; font-size:15px"><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis"><b style="font-weight:600">Field Watch</b> · stock 12 → 0</span><span style="opacity:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#6B645B;">Unknown</span><span style="opacity:0; color:#6B645B; text-align:right">8:00 AM</span></div>
+    </div>
+
+  </div>
+</div>
+
+<section data-mk-io="over" data-screen-label="02 Overwrite" style="background:#FFFFFF; padding:160px 24px 150px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:24px">
+    <h2 data-mk-reveal style="margin:0; text-align:center; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,6.2vw,100px); line-height:.94; letter-spacing:-.055em">
+      <span data-mk-mask><span data-mk-line>Shopify saves over it.</span></span>
+      <span data-mk-mask><span data-mk-line>Actorly keeps it.</span></span>
+    </h2>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; text-align:center; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:#57514A; max-width:640px; text-wrap:pretty">Shopify shows the current value of most fields, not the earlier ones. Actorly records each version it sees, so you can see what it was and, for select fields, put it back.</p>
+    <div data-over style="width:100%; max-width:1180px; margin-top:44px; border-radius:22px; overflow:hidden; box-shadow:0 0 0 1px #E3E3E3, 0 40px 80px -40px rgba(18,16,14,.3); background:#F1F1F1; font-family:Inter,-apple-system,'Segoe UI',sans-serif; color:#303030">
+      <div style="height:48px; background:#1A1A1A; display:flex; align-items:center; padding:0 18px; gap:14px"><span data-shopify-glyph-slot aria-hidden="true" style="display:inline-block; width:16px; height:16px; flex:none"></span><div style="flex:1; display:flex; justify-content:center"><div style="width:min(420px,60%); height:30px; background:#303030; border-radius:8px; display:flex; align-items:center; padding:0 12px; font-size:13px; color:#B5B5B5">Search</div></div></div>
+      <div style="padding:24px; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:16px">
+        <div style="display:flex; flex-direction:column; gap:16px">
+          <div style="display:flex; align-items:center; gap:12px"><div role="img" aria-label="Product photo placeholder" style="width:44px; height:44px; border-radius:10px; background:#E9E4DA; flex:none"></div><span style="font-size:20px; font-weight:700">Studio Headphones</span></div>
+          <div style="background:#FFF; border-radius:12px; padding:18px; box-shadow:0 1px 0 rgba(0,0,0,.08)">
+            <div style="font-size:14px; font-weight:650; margin-bottom:14px">Pricing</div>
+            <div style="font-size:13px; margin-bottom:6px">Price</div>
+            <div style="position:relative">
+              <div data-o-ghosts style="position:absolute; left:0; right:0; top:0; height:40px; pointer-events:none; z-index:2"></div>
+              <div style="height:40px; border:1px solid #8A8A8A; border-radius:8px; display:flex; align-items:center; padding:0 12px; font-size:15px; font-variant-numeric:tabular-nums; background:#FFF"><span data-o-val>$139.00</span><span style="width:1.5px; height:17px; background:#303030; margin-left:1px; animation:blink 1s steps(1) infinite"></span></div>
+            </div>
+            <div data-o-saved style="font-size:12px; color:#616161; margin-top:8px; height:16px">Saved · Aug 24, 3:15 PM</div>
+            <div style="font-size:13px; margin:16px 0 6px">Compare-at price</div>
+            <div style="height:40px; border:1px solid #D4D4D4; border-radius:8px; display:flex; align-items:center; padding:0 12px; font-size:15px; color:#8A8A8A">$0.00</div>
+          </div>
+        </div>
+        <div style="background:#FFF; border-radius:12px; box-shadow:0 0 0 1.5px #FF4A1A; display:flex; flex-direction:column; overflow:hidden">
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #EBEBEB"><span style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:650"><svg width="14" height="14" viewBox="0 0 48 48"><rect x="15" y="5" width="28" height="28" rx="7" fill="#12100E" opacity=".32"></rect><rect x="5" y="15" width="28" height="28" rx="7" fill="#FF4A1A"></rect><path d="M26.5 31 H13.5 M18 26.5 L13.5 31 L18 35.5" fill="none" stroke="#12100E" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Price history in Actorly</span><span style="font-size:13px; color:#616161"><span data-o-count style="font-weight:650; color:#303030; font-variant-numeric:tabular-nums">1</span> kept</span></div>
+          <div data-o-list style="display:flex; flex-direction:column; min-height:220px"></div>
+          <div style="padding:10px 18px; font-size:12px; color:#616161; border-top:1px solid #EBEBEB; margin-top:auto">Example store</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tracks" data-mk-io="tracks" data-screen-label="03 What it tracks" style="padding:160px 24px 150px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:24px">
+    <h2 data-mk-reveal style="margin:0; text-align:center; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,6.2vw,100px); line-height:.94; letter-spacing:-.055em">
+      <span data-mk-mask><span data-mk-line>Not just products.</span></span>
+    </h2>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; text-align:center; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:#57514A; max-width:640px; text-wrap:pretty">Actorly watches the parts of your store listed on the coverage page, from prices and stock to shipping rates, markets and your live theme. Each change keeps the old value and the new one.</p>
+    <div data-tracks style="width:100%; max-width:1180px; margin-top:44px; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr)); gap:14px">
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Products</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">Title · Linen Tee</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ Linen T-Shirt</span></span></div>
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Variants and prices</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">Size M · $40.00</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ $32.00</span></span></div>
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Inventory</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">Warehouse A · 24 on hand</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ 0 on hand</span></span></div>
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Collections</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">Summer Sale · 48 products</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ rule changed to tag = sale</span></span></div>
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Discounts</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">SPRING20 · ends Jun 30</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ ends today</span></span></div>
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Shipping profiles</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">Standard · $4.95</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ $9.95</span></span></div>
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Markets</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">Europe · Active</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ Draft</span></span></div>
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Locations</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">Warehouse B · active</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ deactivated</span></span></div>
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Themes</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">Live · Dawn Winter</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ Dawn Spring published</span></span></div>
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Store settings</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">Currency · USD</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ CAD</span></span></div>
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Orders</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">#1042 · unfulfilled</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ fulfilled</span></span></div>
+      <div data-tk style="background:#FFF; border-radius:22px; padding:22px; box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:14px; transition:box-shadow .3s ease"><span style="font-size:18px; font-weight:700; letter-spacing:-.015em">Files</span><span style="font-size:15px; line-height:1.45"><span data-was style="color:#6B645B; transition:color .4s">hero-banner.jpg · alt empty</span><br><span data-now style="font-weight:600; opacity:0; transition:opacity .4s">→ alt "Spring sale"</span></span></div>
+    </div>
+    <div data-sources style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:10px; margin-top:28px"><span style="font-size:16px; font-weight:600; margin-right:6px">Recorded whoever made it:</span><span data-src style="height:40px; padding:0 16px; border-radius:999px; background:#12100E; color:#F2EFE9; font-size:15px; font-weight:600; display:flex; align-items:center">Your team</span><span data-src style="height:40px; padding:0 16px; border-radius:999px; background:#12100E; color:#F2EFE9; font-size:15px; font-weight:600; display:flex; align-items:center">Other apps</span><span data-src style="height:40px; padding:0 16px; border-radius:999px; background:#12100E; color:#F2EFE9; font-size:15px; font-weight:600; display:flex; align-items:center">CSV imports</span><span data-src style="height:40px; padding:0 16px; border-radius:999px; background:#12100E; color:#F2EFE9; font-size:15px; font-weight:600; display:flex; align-items:center">Bulk edits</span></div>
+    <a href="Actorly Coverage.dc.html" data-mk-fade style="margin-top:12px; font-size:16px; font-weight:600; text-decoration:underline; text-decoration-color:#FF4A1A; text-underline-offset:5px">See everything Actorly can and can't see</a>
+  </div>
+</section>
+
+<section data-mk-io="search" data-screen-label="04 Search" style="background:#FFFFFF; padding:160px 24px 150px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:24px">
+    <h2 data-mk-reveal style="margin:0; text-align:center; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,6.2vw,100px); line-height:.94; letter-spacing:-.055em">
+      <span data-mk-mask><span data-mk-line>Find any change</span></span>
+      <span data-mk-mask><span data-mk-line>when you need it.</span></span>
+    </h2>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; text-align:center; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:#57514A; max-width:640px; text-wrap:pretty">Search the history by product, field or value, and see what it was before.</p>
+    <div data-search style="width:100%; max-width:1180px; margin-top:44px; border-radius:22px; overflow:hidden; box-shadow:0 0 0 1px #DDD6CA, 0 40px 80px -40px rgba(18,16,14,.3); background:#FFF; font-family:Inter,-apple-system,'Segoe UI',sans-serif; color:#303030">
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 22px; background:#F7F7F7; border-bottom:1px solid #EBEBEB"><span style="display:flex; align-items:center; gap:9px; font-size:15px; font-weight:650"><svg width="15" height="15" viewBox="0 0 48 48"><rect x="15" y="5" width="28" height="28" rx="7" fill="#12100E" opacity=".32"></rect><rect x="5" y="15" width="28" height="28" rx="7" fill="#FF4A1A"></rect><path d="M26.5 31 H13.5 M18 26.5 L13.5 31 L18 35.5" fill="none" stroke="#12100E" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Changes</span><span style="font-size:13px; color:#616161">Example store</span></div>
+      <div style="padding:12px 22px; border-bottom:1px solid #EBEBEB"><div style="height:38px; border-radius:8px; box-shadow:inset 0 0 0 1px #8A8A8A; display:flex; align-items:center; gap:8px; padding:0 12px; font-size:14px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#616161" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><span data-q-text></span><span style="width:1.5px; height:16px; background:#303030; margin-left:-6px; animation:blink 1s steps(1) infinite"></span><span data-q-ph style="color:#A0A0A0">Search by product, field or value</span></div></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) 140px; gap:14px; padding:10px 22px; font-size:12px; font-weight:600; color:#616161; background:#F7F7F7; border-bottom:1px solid #EBEBEB"><span>Change</span><span>Was → now</span><span>Who</span><span>When</span></div>
+      <div style="height:416px; overflow:hidden">
+        <div data-q-row data-k="studio headphones price" style="height:52px; overflow:hidden; transition:height .45s cubic-bezier(.16,1,.3,1), background .4s ease"><div style="height:52px; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) 140px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #F1F1F1; font-size:14px"><span><b style="font-weight:600">Studio Headphones</b> · price</span><span>$129.00 → $89.00</span><span style="color:#616161">Unknown</span><span style="color:#616161">Today, 2:32 PM</span></div></div>
+        <div data-q-row data-k="live theme dawn" style="height:52px; overflow:hidden; transition:height .45s cubic-bezier(.16,1,.3,1), background .4s ease"><div style="height:52px; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) 140px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #F1F1F1; font-size:14px"><span><b style="font-weight:600">Live theme</b> · published</span><span>Winter → Spring</span><span style="color:#616161">Unknown</span><span style="color:#616161">Today, 1:15 PM</span></div></div>
+        <div data-q-row data-k="standard shipping rate" style="height:52px; overflow:hidden; transition:height .45s cubic-bezier(.16,1,.3,1), background .4s ease"><div style="height:52px; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) 140px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #F1F1F1; font-size:14px"><span><b style="font-weight:600">Standard shipping</b> · rate</span><span>$4.95 → $9.95</span><span style="color:#616161">Unknown</span><span style="color:#616161">Today, 10:40 AM</span></div></div>
+        <div data-q-row data-k="runner one status" style="height:52px; overflow:hidden; transition:height .45s cubic-bezier(.16,1,.3,1), background .4s ease"><div style="height:52px; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) 140px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #F1F1F1; font-size:14px"><span><b style="font-weight:600">Runner One</b> · status</span><span>Active → Draft</span><span>Jordan O. · likely</span><span style="color:#616161">Today, 9:12 AM</span></div></div>
+        <div data-q-row data-k="studio headphones tags bulk editor" style="height:52px; overflow:hidden; transition:height .45s cubic-bezier(.16,1,.3,1), background .4s ease"><div style="height:52px; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) 140px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #F1F1F1; font-size:14px"><span><b style="font-weight:600">Studio Headphones</b> · tags</span><span>audio, sale → audio</span><span>Bulk Editor app · likely</span><span style="color:#616161">Yesterday, 6:58 PM</span></div></div>
+        <div data-q-row data-k="europe market prices" style="height:52px; overflow:hidden; transition:height .45s cubic-bezier(.16,1,.3,1), background .4s ease"><div style="height:52px; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) 140px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #F1F1F1; font-size:14px"><span><b style="font-weight:600">Europe market</b> · status</span><span>Active → Draft</span><span style="color:#616161">Unknown</span><span style="color:#616161">Yesterday, 4:20 PM</span></div></div>
+        <div data-q-row data-k="studio headphones price" style="height:52px; overflow:hidden; transition:height .45s cubic-bezier(.16,1,.3,1), background .4s ease"><div style="height:52px; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) 140px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #F1F1F1; font-size:14px"><span><b style="font-weight:600">Studio Headphones</b> · price</span><span>$139.00 → $129.00</span><span style="color:#616161">Unknown</span><span style="color:#616161">Sep 19, 9:00 AM</span></div></div>
+        <div data-q-row data-k="field watch title" style="height:52px; overflow:hidden; transition:height .45s cubic-bezier(.16,1,.3,1), background .4s ease"><div style="height:52px; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) 140px; gap:14px; align-items:center; padding:0 22px; border-bottom:1px solid #F1F1F1; font-size:14px"><span><b style="font-weight:600">Field Watch</b> · title</span><span>Field Watch 38 → Field Watch</span><span>Jordan O. · likely</span><span style="color:#616161">Sep 12, 11:02 AM</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="how" data-beats data-mk-scene data-screen-label="05 How it works" style="height:380vh; position:relative; background:#12100E; color:#F2EFE9">
+  <div style="position:sticky; top:0; height:100vh; overflow:hidden; display:flex; flex-direction:column; justify-content:center; padding:90px 24px 40px">
+    <div style="max-width:1180px; width:100%; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr)); gap:clamp(24px,4vw,48px); align-items:center">
+      <div style="display:flex; flex-direction:column; gap:26px">
+        <div style="display:flex; gap:8px; max-width:240px"><span style="flex:1; height:4px; border-radius:2px; background:#2F2A25; overflow:hidden"><span data-beat-bar style="display:block; height:100%; background:#FF4A1A; transform-origin:0 50%; transform:scaleX(0)"></span></span><span style="flex:1; height:4px; border-radius:2px; background:#2F2A25; overflow:hidden"><span data-beat-bar style="display:block; height:100%; background:#FF4A1A; transform-origin:0 50%; transform:scaleX(0)"></span></span><span style="flex:1; height:4px; border-radius:2px; background:#2F2A25; overflow:hidden"><span data-beat-bar style="display:block; height:100%; background:#FF4A1A; transform-origin:0 50%; transform:scaleX(0)"></span></span></div>
+        <div style="position:relative; min-height:clamp(180px,30vh,260px)">
+          <div data-beat-head style="position:absolute; inset:0">
+            <h2 style="margin:0 0 20px; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,min(4.8vw,8vh),76px); line-height:.94; letter-spacing:-.055em">Before and after.</h2>
+            <p style="margin:0; font-size:18px; line-height:1.55; color:#C9C1B5; max-width:42ch">Open a change to see the old value next to the new one.</p>
+          </div>
+          <div data-beat-head style="position:absolute; inset:0; opacity:0; transform:translateY(24px)">
+            <h2 style="margin:0 0 20px; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,min(4.8vw,8vh),76px); line-height:.94; letter-spacing:-.055em">Who changed it.</h2>
+            <p style="margin:0; font-size:18px; line-height:1.55; color:#C9C1B5; max-width:42ch">When Shopify reports who made a change, Actorly shows it with how sure it is. When Shopify doesn't, it says so.</p>
+          </div>
+          <div data-beat-head style="position:absolute; inset:0; opacity:0; transform:translateY(24px)">
+            <h2 style="margin:0 0 20px; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(34px,min(4.8vw,8vh),76px); line-height:.94; letter-spacing:-.055em">Put it back. Then check.</h2>
+            <p style="margin:0; font-size:18px; line-height:1.55; color:#C9C1B5; max-width:42ch">Restore a field to its old value. Actorly re-reads your store afterwards to confirm the value really took.</p>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative; height:min(440px,56vh); min-height:340px; font-family:Inter,-apple-system,'Segoe UI',sans-serif; color:#303030">
+        <div data-beat style="position:absolute; inset:0; background:#FFF; border-radius:24px; padding:24px; display:flex; flex-direction:column; gap:12px; box-shadow:0 60px 120px -40px rgba(0,0,0,.65)">
+          <div style="display:flex; align-items:center; gap:12px"><div role="img" aria-label="Product photo placeholder" style="width:40px; height:40px; border-radius:10px; background:#E9E4DA; flex:none"></div><span><span style="display:block; font-size:16px; font-weight:650">Studio Headphones</span><span style="font-size:13px; color:#616161">Price changed · Today, 2:32 PM</span></span></div>
+          <div style="flex:none; border:1px solid #E3E3E3; border-radius:14px; overflow:hidden; margin-top:6px">
+            <div style="display:grid; grid-template-columns:110px 1fr 1fr; padding:10px 16px; background:#F7F7F7; font-size:12px; font-weight:600; color:#616161"><span>Field</span><span>Was</span><span>Now</span></div>
+            <div style="display:grid; grid-template-columns:110px 1fr 1fr; padding:13px 16px; font-size:16px; border-top:1px solid #EBEBEB; align-items:center"><span style="font-weight:600">Price</span><span><span data-b0-was style="padding:3px 8px; border-radius:6px; transition:background .4s, color .4s">$129.00</span></span><span><span data-b0-now style="padding:3px 8px; border-radius:6px; font-weight:650; transition:background .4s, color .4s">$89.00</span></span></div>
+            <div style="display:grid; grid-template-columns:110px 1fr 1fr; padding:13px 16px; font-size:15px; border-top:1px solid #EBEBEB; color:#616161"><span>Compare-at</span><span>Empty</span><span>Empty</span></div>
+          </div>
+          <div style="font-size:13px; color:#616161; margin-top:auto">Only the price changed on this variant.</div>
+        </div>
+        <div data-beat style="position:absolute; inset:0; background:#FFF; border-radius:24px; padding:22px; display:flex; flex-direction:column; gap:8px; opacity:0; transform:translateY(24px); box-shadow:0 60px 120px -40px rgba(0,0,0,.65)">
+          <div style="font-size:16px; font-weight:650">Who hid Runner One?</div>
+          <div data-b1-step style="display:flex; justify-content:space-between; gap:12px; padding:10px 14px; background:#F7F7F7; border-radius:12px; font-size:14px; opacity:.3"><span>Change</span><b style="font-weight:600">Status Active → Draft</b></div>
+          <div data-b1-step style="display:flex; justify-content:space-between; gap:12px; padding:10px 14px; background:#F7F7F7; border-radius:12px; font-size:14px; opacity:.3"><span>Shopify's activity at 9:12 AM</span><b style="font-weight:600">1 staff edit, same product</b></div>
+          <div data-b1-final style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-radius:14px; box-shadow:0 0 0 1px #E3E3E3; opacity:0"><span style="width:38px; height:38px; border-radius:50%; background:#FFD6C7; color:#7A2A0E; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center">JO</span><span style="flex:1"><span data-b1-name style="display:block; font-size:16px; font-weight:650; font-variant-numeric:tabular-nums">Jordan O.</span><span style="font-size:13px; color:#616161">Staff member</span></span><span style="background:#E0F0FF; color:#00527C; padding:4px 10px; border-radius:999px; font-size:13px; font-weight:600">Likely</span></div>
+          <div data-b1-unk style="display:flex; align-items:center; gap:12px; padding:10px 14px; border-radius:14px; background:#F7F7F7; opacity:0; margin-top:auto"><span style="flex:1; font-size:14px"><b style="font-weight:600">Standard shipping</b> · rate changed<span style="display:block; font-size:13px; color:#616161">Shopify doesn't report who changes shipping rates</span></span><span style="background:#EBEBEB; color:#616161; padding:4px 10px; border-radius:999px; font-size:13px; font-weight:600">Unknown</span></div>
+        </div>
+        <div data-beat style="position:absolute; inset:0; background:#FFF; border-radius:24px; padding:24px; display:flex; flex-direction:column; gap:14px; opacity:0; transform:translateY(24px); box-shadow:0 60px 120px -40px rgba(0,0,0,.65)">
+          <div style="display:flex; align-items:center; gap:12px"><div role="img" aria-label="Product photo placeholder" style="width:40px; height:40px; border-radius:10px; background:#E9E4DA; flex:none"></div><span style="font-size:16px; font-weight:650">Studio Headphones · price</span></div>
+          <div data-b2-price style="font-family:Archivo,sans-serif; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(48px,9vh,88px); line-height:1; letter-spacing:-.05em; font-variant-numeric:tabular-nums">$89.00</div>
+          <div data-b2-steps style="display:flex; flex-direction:column; gap:6px; font-size:14px; color:#616161">
+            <span data-b2-s style="opacity:.3">1 · Check nothing changed since</span>
+            <span data-b2-s style="opacity:.3">2 · Write $129.00 to Shopify</span>
+            <span data-b2-s style="opacity:.3">3 · Re-read the store to confirm</span>
+          </div>
+          <div data-b2-ok style="display:flex; align-items:center; gap:10px; font-size:15px; color:#0C5132; opacity:0"><svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#CDFEE1"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#0C5132" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Verified. Shopify shows $129.00.</div>
+          <span style="flex:1"></span>
+          <span data-b2-btn style="align-self:flex-start; height:46px; padding:0 22px; background:#303030; color:#FFF; border-radius:999px; font-size:15px; font-weight:600; display:flex; align-items:center; transition:transform .15s ease, background .3s ease">Restore $129.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section data-mk-io="tl" data-screen-label="06 Install early" style="background:#FFFFFF; padding:160px 24px 150px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:24px">
+    <h2 data-mk-reveal style="margin:0; text-align:center; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,6.2vw,100px); line-height:.94; letter-spacing:-.055em">
+      <span data-mk-mask><span data-mk-line>Install before</span></span>
+      <span data-mk-mask><span data-mk-line>you need it.</span></span>
+    </h2>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; text-align:center; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:#57514A; max-width:640px; text-wrap:pretty">No app can show changes from before it was installed, because Shopify never kept them. Your history starts the day you install Actorly.</p>
+    <div data-tl style="width:100%; max-width:1180px; margin-top:44px; background:#F2EFE9; border-radius:28px; padding:36px clamp(20px,3vw,40px) 32px">
+      <div style="display:flex; flex-direction:column; gap:22px">
+        <div style="display:grid; grid-template-columns:minmax(0,170px) minmax(0,1fr); gap:20px; align-items:center"><span style="font-size:15px; font-weight:600">Changes in your store</span>
+          <div style="position:relative; height:44px">
+            <sc-for list="{{ beforeTicks }}" as="k" hint-placeholder-count="13"><span data-tl-a style="position:absolute; left:{{ k.left }}; top:12px; width:20px; height:20px; margin-left:-10px; border-radius:6px; box-shadow:inset 0 0 0 2px #B5AD9F; opacity:0"></span></sc-for>
+            <sc-for list="{{ afterTicks }}" as="k" hint-placeholder-count="22"><span data-tl-a style="position:absolute; left:{{ k.left }}; top:12px; width:20px; height:20px; margin-left:-10px; border-radius:6px; background:#12100E; opacity:0"></span></sc-for>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:minmax(0,170px) minmax(0,1fr); gap:20px; align-items:center"><span style="font-size:15px; font-weight:600">Kept by Actorly</span>
+          <div style="position:relative; height:44px">
+            <span style="position:absolute; left:0; width:37%; top:6px; bottom:6px; border-radius:10px; background:repeating-linear-gradient(135deg,#E2DCD1 0 6px,#ECE7DE 6px 12px); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color:#6B645B">Not recorded</span>
+            <sc-for list="{{ afterTicks }}" as="k" hint-placeholder-count="22"><span data-tl-b data-left="{{ k.n }}" style="position:absolute; left:{{ k.left }}; top:12px; width:20px; height:20px; margin-left:-10px; border-radius:6px; background:#FF4A1A; opacity:0; transform:scale(.4)"></span></sc-for>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:minmax(0,170px) minmax(0,1fr); gap:20px">
+          <span></span>
+          <div style="position:relative; height:0">
+            <span style="position:absolute; left:38%; top:-122px; height:132px; width:2px; margin-left:-1px; background:#12100E"></span>
+            <span style="position:absolute; left:38%; top:16px; transform:translateX(-50%); background:#12100E; color:#F2EFE9; font-size:13px; font-weight:600; padding:6px 12px; border-radius:999px; white-space:nowrap">You install Actorly</span>
+            <span data-tl-scan style="position:absolute; left:38%; top:-122px; height:132px; width:2px; margin-left:-1px; background:#FF4A1A; opacity:0"></span>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:16px; margin-top:76px">
+        <div style="background:#FFF; border-radius:18px; padding:20px 22px"><div style="font-variation-settings:'wdth' 100; font-weight:700; font-size:44px; letter-spacing:-.05em; font-variant-numeric:tabular-nums"><span data-mk-count="13">0</span></div><div style="font-size:15px; color:#57514A">changes before install, gone for good</div></div>
+        <div style="background:#FFF; border-radius:18px; padding:20px 22px"><div style="font-variation-settings:'wdth' 100; font-weight:700; font-size:44px; letter-spacing:-.05em; font-variant-numeric:tabular-nums; color:#A32C00"><span data-mk-count="22">0</span></div><div style="font-size:15px; color:#57514A">changes after install, every one kept</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" data-mk-io="price" data-screen-label="07 Pricing" style="padding:160px 24px 150px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:24px">
+    <h2 data-mk-reveal style="margin:0; text-align:center; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,6.2vw,100px); line-height:.94; letter-spacing:-.055em">
+      <span data-mk-mask><span data-mk-line>Free to watch.</span></span>
+      <span data-mk-mask><span data-mk-line>$29 to restore.</span></span>
+    </h2>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; text-align:center; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:#57514A; max-width:640px">Watch is free for good. Restore when you need unlimited history and unlimited restores.</p>
+    <div data-mk-fade data-mk-delay="0.4" style="display:flex; gap:4px; padding:4px; border-radius:999px; background:#FFF; box-shadow:0 0 0 1px #DDD6CA; margin-top:20px">
+      <button type="button" onClick="{{ setMonthly }}" style="height:40px; padding:0 18px; border:0; border-radius:999px; font:inherit; font-size:15px; font-weight:600; cursor:pointer; background:{{ monBg }}; color:{{ monFg }}; transition:background .25s ease, color .25s ease">Monthly</button>
+      <button type="button" onClick="{{ setYearly }}" style="height:40px; padding:0 18px; border:0; border-radius:999px; font:inherit; font-size:15px; font-weight:600; cursor:pointer; background:{{ yrBg }}; color:{{ yrFg }}; transition:background .25s ease, color .25s ease">Yearly · save 31%</button>
+    </div>
+    <div data-price style="width:100%; max-width:1180px; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr)); gap:18px; margin-top:20px">
+      <div style="background:#FFF; border-radius:26px; padding:clamp(26px,3vw,40px); box-shadow:0 0 0 1px #DDD6CA; display:flex; flex-direction:column; gap:26px">
+        <div><div style="font-size:22px; font-weight:700; letter-spacing:-.02em">Watch</div><div style="font-size:16px; color:#57514A; margin-top:6px">See everything that changes in your store.</div></div>
+        <div style="display:flex; align-items:baseline; gap:10px"><span style="font-variation-settings:'wdth' 100; font-weight:700; font-size:72px; letter-spacing:-.05em; line-height:1">$0</span><span style="font-size:16px; color:#57514A">free forever</span></div>
+        <a href="#install" style="height:52px; border-radius:999px; box-shadow:inset 0 0 0 1px #CFC6B7; font-size:16px; font-weight:600; display:flex; align-items:center; justify-content:center" style-hover="box-shadow:inset 0 0 0 1.5px #12100E">Install free</a>
+        <div style="height:1px; background:#EFEBE4"></div>
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-size:13px; font-weight:700; letter-spacing:.02em; color:#6B645B">WHAT IT RECORDS</span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#12100E"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#FFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Every tracked part of your store<span style="display:block; font-size:13px; opacity:.7; margin-top:2px">Products, prices, stock, collections, discounts, shipping, markets, themes and more</span></span></span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#12100E"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#FFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Unlimited changes, never metered</span></span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#12100E"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#FFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>The old value and the new value for each change</span></span></div>
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-size:13px; font-weight:700; letter-spacing:.02em; color:#6B645B">FINDING THINGS</span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#12100E"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#FFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Search by product, field or value</span></span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#12100E"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#FFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Filter by date, type of change and who made it</span></span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#12100E"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#FFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Who made a change, when Shopify reports it, with how sure Actorly is</span></span></div>
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-size:13px; font-weight:700; letter-spacing:.02em; color:#6B645B">HISTORY AND RESTORES</span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#12100E"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#FFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>3 months of history</span></span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#12100E"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#FFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>1 restore a month<span style="display:block; font-size:13px; opacity:.7; margin-top:2px">Single field, verified after it runs</span></span></span></div>
+      </div>
+      <div style="background:#12100E; color:#F2EFE9; border-radius:26px; padding:clamp(26px,3vw,40px); display:flex; flex-direction:column; gap:26px; box-shadow:0 30px 60px -30px rgba(18,16,14,.6)">
+        <div><div style="font-size:22px; font-weight:700; letter-spacing:-.02em">Restore</div><div style="font-size:16px; color:#C9C1B5; margin-top:6px">Put back what changed, for as long as you need.</div></div>
+        <div style="display:flex; align-items:baseline; gap:10px; height:72px; overflow:hidden"><span data-roll style="font-variation-settings:'wdth' 100; font-weight:700; font-size:72px; letter-spacing:-.05em; line-height:1; font-variant-numeric:tabular-nums; display:inline-block; transition:transform .6s cubic-bezier(.16,1,.3,1), opacity .3s ease">${{ restorePrice }}</span><span style="font-size:16px; color:#C9C1B5">{{ restoreUnit }}</span></div>
+        <a href="#install" style="height:52px; border-radius:999px; background:#FF4A1A; color:#12100E; font-size:16px; font-weight:700; display:flex; align-items:center; justify-content:center" style-hover="background:#F2EFE9; color:#12100E">Install free, upgrade anytime</a>
+        <div style="height:1px; background:#2F2A25"></div>
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-size:13px; font-weight:700; letter-spacing:.02em; color:#C9C1B5">EVERYTHING IN WATCH, PLUS</span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#FF4A1A"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#12100E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Unlimited history<span style="display:block; font-size:13px; opacity:.7; margin-top:2px">Kept for as long as you stay on Restore and keep Actorly installed</span></span></span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#FF4A1A"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#12100E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Unlimited restores<span style="display:block; font-size:13px; opacity:.7; margin-top:2px">One field at a time, each one checked before and after</span></span></span></div>
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-size:13px; font-weight:700; letter-spacing:.02em; color:#C9C1B5">HOW EACH RESTORE WORKS</span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#FF4A1A"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#12100E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Checks nothing changed since</span></span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#FF4A1A"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#12100E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Asks you to confirm the exact value</span></span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#FF4A1A"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#12100E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Re-reads your store to make sure it took</span></span></div>
+        <div style="display:flex; flex-direction:column; gap:10px"><span style="font-size:13px; font-weight:700; letter-spacing:.02em; color:#C9C1B5">YOUR DATA</span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#FF4A1A"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#12100E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Export your history to CSV or JSON</span></span><span style="display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.4"><svg width="18" height="18" viewBox="0 0 24 24" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="11" fill="#FF4A1A"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#12100E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Change plans or cancel from your Shopify admin</span></span></div>
+      </div>
+    </div>
+    <div data-mk-fade style="width:100%; max-width:1180px; margin-top:32px; background:#FFF; border-radius:24px; box-shadow:0 0 0 1px #DDD6CA; overflow:hidden">
+      <div style="display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); gap:16px; padding:18px 24px; background:#F7F4EE; font-size:15px; font-weight:700"><span>Compare plans</span><span>Watch · $0</span><span>Restore · $29</span></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); gap:16px; padding:16px 24px; border-bottom:1px solid #EFEBE4; font-size:15px; align-items:center"><span>Parts of your store watched</span><span>All tracked</span><span style="font-weight:600">All tracked</span></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); gap:16px; padding:16px 24px; border-bottom:1px solid #EFEBE4; font-size:15px; align-items:center"><span>Changes recorded</span><span>Unlimited</span><span style="font-weight:600">Unlimited</span></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); gap:16px; padding:16px 24px; border-bottom:1px solid #EFEBE4; font-size:15px; align-items:center"><span>Old and new value</span><span><span style="color:#0C5132; font-weight:600">Included</span></span><span style="font-weight:600"><span style="color:#0C5132; font-weight:600">Included</span></span></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); gap:16px; padding:16px 24px; border-bottom:1px solid #EFEBE4; font-size:15px; align-items:center"><span>Who made it, when Shopify reports it</span><span><span style="color:#0C5132; font-weight:600">Included</span></span><span style="font-weight:600"><span style="color:#0C5132; font-weight:600">Included</span></span></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); gap:16px; padding:16px 24px; border-bottom:1px solid #EFEBE4; font-size:15px; align-items:center"><span>Search and filters</span><span><span style="color:#0C5132; font-weight:600">Included</span></span><span style="font-weight:600"><span style="color:#0C5132; font-weight:600">Included</span></span></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); gap:16px; padding:16px 24px; border-bottom:1px solid #EFEBE4; font-size:15px; align-items:center"><span>History kept</span><span>3 months</span><span style="font-weight:600">While on Restore</span></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); gap:16px; padding:16px 24px; border-bottom:1px solid #EFEBE4; font-size:15px; align-items:center"><span>Restores</span><span>1 a month</span><span style="font-weight:600">Unlimited</span></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); gap:16px; padding:16px 24px; border-bottom:1px solid #EFEBE4; font-size:15px; align-items:center"><span>Re-checked after every restore</span><span><span style="color:#0C5132; font-weight:600">Included</span></span><span style="font-weight:600"><span style="color:#0C5132; font-weight:600">Included</span></span></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); gap:16px; padding:16px 24px; border-bottom:1px solid #EFEBE4; font-size:15px; align-items:center"><span>Export to CSV or JSON</span><span><span style="color:#6B645B">Not included</span></span><span style="font-weight:600"><span style="color:#0C5132; font-weight:600">Included</span></span></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); gap:16px; padding:16px 24px;  font-size:15px; align-items:center"><span>Charged per change</span><span>Never</span><span style="font-weight:600">Never</span></div>
+    </div>
+    <p style="margin:16px 0 0; font-size:14px; color:#6B645B; text-align:center">Billed by Shopify on your usual invoice. Busy stores pay the same as quiet ones.</p>
+  </div>
+</section>
+
+<section id="faq" data-screen-label="08 FAQ" style="background:#FFFFFF; padding:150px 24px 140px">
+  <div style="max-width:820px; margin:0 auto">
+    <h2 data-mk-reveal style="margin:0 0 48px; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5.2vw,80px); line-height:.94; letter-spacing:-.055em"><span data-mk-mask><span data-mk-line>Questions merchants ask.</span></span></h2>
+    <div data-mk-stagger="0.06">
+      <details style="border-top:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:24px 0; font-size:20px; font-weight:600; letter-spacing:-.015em">What does Actorly track?<span data-plus style="font-size:26px; font-weight:400; transition:transform .3s cubic-bezier(.16,1,.3,1)">+</span></summary><p style="margin:0 0 24px; font-size:17px; line-height:1.6; color:#57514A; max-width:64ch">Products and variants (including prices), inventory, collections, discounts, shipping profiles, locations, markets, themes, store settings, orders, fulfillments and files. <a href="Actorly Coverage.dc.html" style="color:#A32C00; text-decoration:underline; text-underline-offset:4px">See the full list</a>, including what it can't see.</p></details>
+      <details style="border-top:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:24px 0; font-size:20px; font-weight:600; letter-spacing:-.015em">Is it really free?<span data-plus style="font-size:26px; font-weight:400; transition:transform .3s cubic-bezier(.16,1,.3,1)">+</span></summary><p style="margin:0 0 24px; font-size:17px; line-height:1.6; color:#57514A; max-width:64ch">Yes. Watch is free forever, with every tracked part of your store, unlimited changes, 3 months of history and one restore a month. Restore is $29 a month for history kept for as long as you stay on Restore, and unlimited restores.</p></details>
+      <details style="border-top:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:24px 0; font-size:20px; font-weight:600; letter-spacing:-.015em">Can it show changes from before I installed it?<span data-plus style="font-size:26px; font-weight:400; transition:transform .3s cubic-bezier(.16,1,.3,1)">+</span></summary><p style="margin:0 0 24px; font-size:17px; line-height:1.6; color:#57514A; max-width:64ch">No, and no app can, because Shopify doesn't keep a field-by-field history. Actorly records everything from the moment you install.</p></details>
+      <details style="border-top:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:24px 0; font-size:20px; font-weight:600; letter-spacing:-.015em">Does it always know who made a change?<span data-plus style="font-size:26px; font-weight:400; transition:transform .3s cubic-bezier(.16,1,.3,1)">+</span></summary><p style="margin:0 0 24px; font-size:17px; line-height:1.6; color:#57514A; max-width:64ch">No. For product changes, Actorly shows who likely made it when Shopify reports it, with how sure it is. For other changes, and whenever Shopify doesn't say, it shows unknown instead of guessing. Your team keeps editing in Shopify as usual.</p></details>
+      <details style="border-top:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:24px 0; font-size:20px; font-weight:600; letter-spacing:-.015em">What can it put back?<span data-plus style="font-size:26px; font-weight:400; transition:transform .3s cubic-bezier(.16,1,.3,1)">+</span></summary><p style="margin:0 0 24px; font-size:17px; line-height:1.6; color:#57514A; max-width:64ch">Select fields, one at a time, such as a variant's price or a product's tags. Actorly checks nothing changed since, asks you to confirm, writes the old value, then re-reads your store to make sure it took. If a restore isn't safe, it changes nothing.</p></details>
+      <details style="border-top:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:24px 0; font-size:20px; font-weight:600; letter-spacing:-.015em">Will it slow down my store?<span data-plus style="font-size:26px; font-weight:400; transition:transform .3s cubic-bezier(.16,1,.3,1)">+</span></summary><p style="margin:0 0 24px; font-size:17px; line-height:1.6; color:#57514A; max-width:64ch">No. Actorly adds nothing to your storefront or theme. It works in the background from Shopify's own change notifications.</p></details>
+      <details style="border-top:1px solid #DDD6CA; border-bottom:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:24px 0; font-size:20px; font-weight:600; letter-spacing:-.015em">Am I charged per change?<span data-plus style="font-size:26px; font-weight:400; transition:transform .3s cubic-bezier(.16,1,.3,1)">+</span></summary><p style="margin:0 0 24px; font-size:17px; line-height:1.6; color:#57514A; max-width:64ch">Never. Busy stores pay the same as quiet ones. Plans differ on how long history is kept and how many restores you get.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="install" data-mk-io="close" data-screen-label="09 Closing" style="background:#12100E; color:#F2EFE9; padding:150px 24px 160px; overflow:hidden">
+  <div data-orbit style="position:relative; height:400px; max-width:1240px; margin:0 auto">
+    <span data-chip style="position:absolute; left:50%; top:50%; background:#2A2521; border-radius:999px; padding:9px 15px; font-size:14px; font-weight:600; white-space:nowrap">Price $129 → $89</span>
+    <span data-chip style="position:absolute; left:50%; top:50%; background:#2A2521; border-radius:999px; padding:9px 15px; font-size:14px; font-weight:600; white-space:nowrap">Product hidden</span>
+    <span data-chip style="position:absolute; left:50%; top:50%; background:#2A2521; border-radius:999px; padding:9px 15px; font-size:14px; font-weight:600; white-space:nowrap">Stock 12 → 0</span>
+    <span data-chip style="position:absolute; left:50%; top:50%; background:#2A2521; border-radius:999px; padding:9px 15px; font-size:14px; font-weight:600; white-space:nowrap">Shipping $4.95 → $9.95</span>
+    <span data-chip style="position:absolute; left:50%; top:50%; background:#2A2521; border-radius:999px; padding:9px 15px; font-size:14px; font-weight:600; white-space:nowrap">Theme published</span>
+    <span data-chip style="position:absolute; left:50%; top:50%; background:#2A2521; border-radius:999px; padding:9px 15px; font-size:14px; font-weight:600; white-space:nowrap">Discount ended</span>
+    <span data-chip style="position:absolute; left:50%; top:50%; background:#2A2521; border-radius:999px; padding:9px 15px; font-size:14px; font-weight:600; white-space:nowrap">Market Active → Draft</span>
+    <span data-chip style="position:absolute; left:50%; top:50%; background:#2A2521; border-radius:999px; padding:9px 15px; font-size:14px; font-weight:600; white-space:nowrap">Tags rewritten</span>
+    <svg data-c-mark width="120" height="120" viewBox="0 0 48 48" style="position:absolute; left:50%; top:50%; margin:-60px 0 0 -60px; opacity:0; transform:scale(.6); overflow:visible"><rect x="15" y="5" width="28" height="28" rx="7" fill="#F2EFE9" opacity=".32"></rect><g data-c-bar style="opacity:0"><rect x="5" y="15" width="28" height="28" rx="7" fill="#FF4A1A"></rect><path d="M26.5 31 H13.5 M18 26.5 L13.5 31 L18 35.5" fill="none" stroke="#12100E" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px; margin-top:24px">
+    <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,6.2vw,100px); line-height:.94; letter-spacing:-.055em">
+      <span data-mk-mask><span data-mk-line>Start your history</span></span>
+      <span data-mk-mask><span data-mk-line>today.</span></span>
+    </h2>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:#C9C1B5; max-width:560px; text-wrap:pretty">The next time something in your store changes and nobody knows why, you'll see what it was, who changed it, and how to put it back.</p>
+    <div data-mk-fade data-mk-delay="0.45" style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center">
+      <a href="#install" data-mk-magnet style="height:56px; padding:0 30px; border-radius:999px; background:#FF4A1A; color:#12100E; font-size:17px; font-weight:700; display:flex; align-items:center; gap:10px" style-hover="background:#F2EFE9; color:#12100E"><span data-shopify-glyph-slot aria-hidden="true" style="display:inline-block; width:17px; height:17px; flex:none"></span>Install free on Shopify</a>
+      <a href="Actorly Coverage.dc.html" style="height:56px; padding:0 26px; border-radius:999px; box-shadow:inset 0 0 0 1px #4A433C; font-size:17px; font-weight:600; display:flex; align-items:center" style-hover="color:#FF6A3D">What Actorly tracks</a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" home="{{ true }}" hint-size="100%,820px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.root = React.createRef(); this.state = { yearly: false }; this._t = []; this._frames = []; this._io = {}; }
+  renderVals() {
+    const y = this.state.yearly;
+    const lefts = Array.from({ length: 35 }, (_, i) => 2 + i * 2.75 + ((i * 37) % 11) / 11 * 1.4);
+    return {
+      root: this.root,
+      beforeTicks: lefts.filter(l => l < 37).map(l => ({ left: l.toFixed(2) + '%' })),
+      afterTicks: lefts.filter(l => l >= 37).map(l => ({ left: l.toFixed(2) + '%', n: l.toFixed(2) })),
+      restorePrice: y ? '240' : '29', restoreUnit: y ? '/ year' : '/ month',
+      monBg: y ? 'transparent' : '#12100E', monFg: y ? '#12100E' : '#F2EFE9',
+      yrBg: y ? '#12100E' : 'transparent', yrFg: y ? '#F2EFE9' : '#12100E',
+      setMonthly: () => this.roll(false), setYearly: () => this.roll(true)
+    };
+  }
+  roll(y) {
+    if (y === this.state.yearly) return;
+    const el = this.root.current && this.root.current.querySelector('[data-roll]');
+    if (!el) { this.setState({ yearly: y }); return; }
+    el.style.transform = 'translateY(-100%)'; el.style.opacity = 0;
+    this.later(() => { this.setState({ yearly: y }); el.style.transition = 'none'; el.style.transform = 'translateY(100%)'; void el.offsetWidth; el.style.transition = 'transform .6s cubic-bezier(.16,1,.3,1), opacity .3s ease'; el.style.transform = 'none'; el.style.opacity = 1; }, 220);
+  }
+  later(fn, ms) { const t = setTimeout(fn, ms); this._t.push(t); return t; }
+  componentDidMount() { this.boot(); }
+  componentDidUpdate() { const MK = window.MotionKit; if (MK && this._booted) { MK.prep(); requestAnimationFrame(() => MK.scan()); } }
+  componentWillUnmount() { this._dead = true; this._t.forEach(t => { clearTimeout(t); clearInterval(t); }); cancelAnimationFrame(this._raf); this._ro && this._ro.disconnect(); }
+  boot() {
+    const MK = window.MotionKit, r = this.root.current;
+    if (!MK || !r) { this.later(() => this.boot(), 120); return; }
+    this._booted = true;
+    MK.init({ anchorOffset: 0 });
+    const rescan = () => { MK.prep(); MK.scan(); };
+    requestAnimationFrame(rescan); this.later(rescan, 150); this.later(rescan, 700);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(rescan);
+    r.addEventListener('mk:inview', e => { const fn = this._io[e.detail.name]; if (fn) fn(); });
+    ['hero', 'beats', 'overwrite', 'tracks', 'search', 'timeline', 'pricing', 'closing', 'signoff'].forEach(f => { try { this[f](); } catch (e) { console.error(f, e); } });
+    const loop = () => { if (this._dead) return; this._frames.forEach(f => f()); this._raf = requestAnimationFrame(loop); };
+    this._raf = requestAnimationFrame(loop);
+    this.later(rescan, 60);
+  }
+
+  hero() {
+    const MK = window.MotionKit, r = this.root.current, scene = r.querySelector('[data-hero]'), st = scene.querySelector('[data-stage]');
+    const q = s => st.querySelector(s), qa = s => [...st.querySelectorAll(s)];
+    const copy = q('[data-h-copy]'), cbox = q('[data-h-clockbox]'), clock = q('[data-h-clock]'), note = q('[data-h-note]'), themeName = q('[data-theme-name]');
+    const cards = qa('[data-h-card]'), stamps = qa('[data-h-stamp]'), title = q('[data-h-title]'), panel = q('[data-h-panel]'), rows = qa('[data-h-row]');
+    const cl = v => Math.max(0, Math.min(1, v)), R = (p, a, b) => cl((p - a) / (b - a));
+    const settle = x => 1 - Math.pow(1 - x, 4), back = x => 1 + 2.7 * Math.pow(x - 1, 3) + 1.7 * Math.pow(x - 1, 2), ease = MK.EASE.scrub;
+    const rot = [-6, 4, -3, 5, -4, 3, -5, 4], dy = [18, -8, 24, 10, -6, 16, 4, 20];
+    const fmt = m => { m = Math.round(m); const h = Math.floor(m / 60), mm = m % 60; return (((h + 11) % 12) + 1) + ':' + String(mm).padStart(2, '0') + (h < 12 ? ' AM' : ' PM'); };
+    const hitP = m => .14 + (m - 450) / 430 * .26;
+    // stamp i: card, history row (newest first), minute of day
+    const map = [{ card: 2, row: 7, m: 480 }, { card: 1, row: 6, m: 552 }, { card: 4, row: 5, m: 640 }, { card: 6, row: 4, m: 665 }, { card: 3, row: 3, m: 720 }, { card: 7, row: 2, m: 765 }, { card: 5, row: 1, m: 795 }, { card: 0, row: 0, m: 872 }].map(o => ({ ...o, p: hitP(o.m) }));
+    let L = null, p = MK.reducedMotion() ? 1 : 0, ptr = null;
+    cards.forEach(c => { c._px = 0; c._py = 0; });
+    const layout = () => {
+      const W = st.clientWidth, H = st.clientHeight, cols = W >= 760 ? 4 : 2, rowsN = Math.ceil(8 / cols), gap = W < 600 ? 12 : 18;
+      const top = Math.max(H * .3, 220), avail = H - top - 24;
+      let cw = Math.min(320, (W - (W < 600 ? 32 : 64) - (cols - 1) * gap) / cols);
+      cw = Math.max(120, Math.min(cw, ((avail - gap * (rowsN - 1)) / rowsN - 66) / .62));
+      const ih = cw * .62, ch = ih + 66, tw = cols * cw + (cols - 1) * gap, x0 = (W - tw) / 2;
+      const pos = cards.map((c, i) => { const x = x0 + (i % cols) * (cw + gap), y = top + Math.floor(i / cols) * (ch + gap); c.style.width = cw + 'px'; c.style.left = x + 'px'; c.style.top = y + 'px'; c.querySelector('[data-h-img]').style.height = ih + 'px'; return { x, y, w: cw, ih }; });
+      const copyBottom = copy.offsetTop + copy.offsetHeight;
+      const pw = Math.min(1180, W - 32), pl = (W - pw) / 2, pt0 = 150, rh = Math.max(32, Math.min(54, (H - pt0 - 52 - (H > 760 ? 60 : 16)) / 8)), blockH = 52 + 8 * rh, pt = Math.max(pt0, (H - blockH) / 2 + 36);
+      rows.forEach(rw => rw.style.height = rh + 'px');
+      panel.style.width = pw + 'px'; panel.style.left = pl + 'px'; panel.style.top = pt + 'px';
+      title.style.top = (pt - 64) + 'px';
+      
+      L = { W, H, pos, rise: Math.max(H * .66, copyBottom + 40) - top, rowAt: i => ({ x: pl + 14, y: pt + 52 + i * rh + 4 }) };
+    };
+    const render = () => {
+      if (!L) layout();
+      L.rise = Math.max(L.H * .66, copy.offsetTop + copy.offsetHeight + 40) - L.pos[0].y;
+      const e0 = settle(R(p, 0, .14)), e1 = ease(R(p, .02, .16)), e2 = ease(R(p, .44, .56)), push = 1 - R(p, 0, .08);
+      copy.style.opacity = 1 - e0; copy.style.transform = `translateY(${-90 * e0}px) scale(${1 - .04 * e0})`; copy.style.pointerEvents = e0 > .5 ? 'none' : 'auto';
+      cbox.style.opacity = R(p, .08, .14) * (1 - R(p, .42, .48));
+      clock.textContent = fmt(450 + 430 * R(p, .14, .40));
+      const broke = map.filter(m => p >= m.p).length;
+      note.textContent = broke ? broke + (broke === 1 ? ' change so far' : ' changes so far') : 'A normal day';
+      themeName.textContent = p >= map[6].p ? 'Spring collection' : 'Winter collection';
+      const ct = cards.map((c, i) => {
+        const P = L.pos[i];
+        if (ptr && push > 0) { const dx = P.x + P.w / 2 - ptr.x, dyy = P.y + P.ih / 2 + L.rise * (1 - e1) - ptr.y, d = Math.hypot(dx, dyy) || 1, f = Math.max(0, 1 - d / 260) * 40 * push; c._px += (dx / d * f - c._px) * .14; c._py += (dyy / d * f - c._py) * .14; } else { c._px *= .86; c._py *= .86; }
+        const x = c._px, y = c._py + (L.rise + dy[i]) * (1 - e1) + L.H * .3 * e2;
+        c.style.transform = `translate(${x}px,${y}px) rotate(${rot[i] * (1 - e1)}deg) scale(${1 - .15 * e2})`; c.style.opacity = 1 - e2;
+        return { x, y };
+      });
+      map.forEach((m, i) => {
+        const c = cards[m.card], s = R(p, m.p, m.p + .02), e = settle(s);
+        c.querySelector('[data-before]').style.opacity = 1 - e; c.querySelector('[data-after]').style.opacity = e;
+        if (m.card === 1) c.querySelector('[data-h-img]').style.opacity = 1 - .6 * e;
+        const P = L.pos[m.card], from = { x: P.x + 10 + ct[m.card].x, y: P.y + P.ih * .3 + ct[m.card].y }, to = L.rowAt(m.row);
+        const a0 = .48 + i * .02, f = ease(R(p, a0, a0 + .1)), x = from.x + (to.x - from.x) * f, y = from.y + (to.y - from.y) * f;
+        stamps[i].style.opacity = cl(s * 5) * (1 - R(p, a0 + .1, a0 + .13));
+        stamps[i].style.transform = `translate(${x}px,${y}px) rotate(${(i % 2 ? 5 : -5) * (1 - f)}deg) scale(${(1.6 - .6 * back(s)) * (1 - .25 * f)})`;
+        const k = R(p, a0 + .1, a0 + .14), row = rows[m.row];
+        [...row.children].forEach(ch => ch.style.opacity = k);
+        row.style.background = `rgba(255,74,26,${.14 * k * (1 - R(p, a0 + .16, .84))})`;
+      });
+      const pe = settle(R(p, .46, .58)), out = 0; panel.style.opacity = R(p, .46, .53) * (1 - out); panel.style.transform = `translateY(${40 * (1 - pe) - 60 * out}px) scale(${1 - .04 * out})`;
+      const te = settle(R(p, .66, .76)); title.style.opacity = R(p, .66, .74) * (1 - out); title.style.transform = `translateY(${24 * (1 - te) - 60 * out}px)`;
+    };
+    scene.addEventListener('mk:progress', e => { p = e.detail.p; });
+    window.addEventListener('resize', () => { L = null; });
+    if (window.ResizeObserver) { this._ro = new ResizeObserver(() => { L = null; }); this._ro.observe(copy); this._ro.observe(st); }
+    if (window.matchMedia('(hover: hover)').matches) st.addEventListener('pointermove', e => { const b = st.getBoundingClientRect(); ptr = { x: e.clientX - b.left, y: e.clientY - b.top }; });
+    st.addEventListener('pointerleave', () => { ptr = null; });
+    this._frames.push(() => { if (MK.near(scene)) render(); });
+  }
+
+  beats() {
+    const r = this.root.current, scene = r.querySelector('[data-beats]');
+    const panels = [...scene.querySelectorAll('[data-beat]')], heads = [...scene.querySelectorAll('[data-beat-head]')], bars = [...scene.querySelectorAll('[data-beat-bar]')];
+    let cur = -1, token = 0;
+    const show = b => [panels, heads].forEach(set => set.forEach((el, i) => { el.style.transition = 'opacity .5s ease, transform .9s cubic-bezier(.16,1,.3,1)'; el.style.opacity = i === b ? 1 : 0; el.style.transform = `translateY(${i === b ? 0 : i < b ? -24 : 24}px)`; }));
+    const play = b => {
+      const my = ++token, at = (fn, ms) => this.later(() => { if (my === token) fn(); }, ms), q = s => scene.querySelector(s), qa = s => [...scene.querySelectorAll(s)];
+      if (b === 0) { const w = q('[data-b0-was]'), n = q('[data-b0-now]'); [w, n].forEach(x => { x.style.background = 'transparent'; x.style.color = '#303030'; x.style.textDecoration = 'none'; });
+        at(() => { w.style.background = '#FEE9E8'; w.style.color = '#8E1F0B'; w.style.textDecoration = 'line-through'; }, 450); at(() => { n.style.background = '#CDFEE1'; n.style.color = '#0C5132'; }, 900); }
+      if (b === 1) { const steps = qa('[data-b1-step]'), fin = q('[data-b1-final]'), name = q('[data-b1-name]'), unk = q('[data-b1-unk]');
+        steps.forEach(s => { s.style.transition = 'opacity .35s ease'; s.style.opacity = .3; }); [fin, unk].forEach(x => { x.style.transition = 'none'; x.style.opacity = 0; x.style.transform = 'translateY(10px)'; });
+        steps.forEach((s, i) => at(() => s.style.opacity = 1, 350 + i * 420));
+        at(() => { fin.style.transition = 'opacity .4s ease, transform .6s cubic-bezier(.34,1.56,.64,1)'; fin.style.opacity = 1; fin.style.transform = 'none';
+          const word = 'Jordan O.', ch = '#%&*+=0123456789ABCDEFGHJKLMNPQRSTUVWXYZ'; let k = 0;
+          const iv = setInterval(() => { if (my !== token) { clearInterval(iv); return; } k++; name.textContent = k > 10 ? word : [...word].map(c => c === ' ' ? ' ' : ch[Math.floor(Math.random() * ch.length)]).join(''); if (k > 10) clearInterval(iv); }, 50); this._t.push(iv); }, 1250);
+        at(() => { unk.style.transition = 'opacity .5s ease, transform .9s cubic-bezier(.16,1,.3,1)'; unk.style.opacity = 1; unk.style.transform = 'none'; }, 2400); }
+      if (b === 2) { const btn = q('[data-b2-btn]'), ok = q('[data-b2-ok]'), price = q('[data-b2-price]'), ss = qa('[data-b2-s]');
+        btn.textContent = 'Restore $129.00'; btn.style.background = '#303030'; ok.style.transition = 'none'; ok.style.opacity = 0; price.textContent = '$89.00'; ss.forEach(s => { s.style.transition = 'opacity .3s ease, color .3s ease'; s.style.opacity = .3; s.style.color = '#616161'; });
+        at(() => btn.style.transform = 'scale(.95)', 600); at(() => { btn.style.transform = 'none'; btn.textContent = 'Restoring…'; }, 760);
+        at(() => { ss[0].style.opacity = 1; }, 900);
+        at(() => { ss[1].style.opacity = 1; const t0 = performance.now(); const step = t => { if (my !== token) return; const k = Math.min(1, (t - t0) / 700); price.textContent = '$' + (89 + 40 * (1 - Math.pow(1 - k, 3))).toFixed(2); if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }, 1400);
+        at(() => { ss[2].style.opacity = 1; btn.textContent = 'Checking Shopify…'; }, 2200);
+        at(() => { btn.textContent = 'Restored'; btn.style.background = '#0C5132'; ss.forEach(s => s.style.color = '#0C5132'); ok.style.transition = 'opacity .4s ease'; ok.style.opacity = 1; }, 3000); }
+    };
+    scene.addEventListener('mk:progress', e => {
+      const p = e.detail.p, b = Math.min(2, Math.floor(p * 3)), local = p * 3 - b;
+      bars.forEach((bar, i) => bar.style.transform = `scaleX(${i < b ? 1 : i === b ? (p >= .999 ? 1 : .3 + .7 * Math.min(1, local / .9)) : 0})`);
+      if (b !== cur) { cur = b; show(b); play(b); }
+    });
+  }
+
+  overwrite() {
+    const r = this.root.current, box = r.querySelector('[data-over]'), MK = window.MotionKit;
+    const val = box.querySelector('[data-o-val]'), ghosts = box.querySelector('[data-o-ghosts]'), saved = box.querySelector('[data-o-saved]'), count = box.querySelector('[data-o-count]'), list = box.querySelector('[data-o-list]');
+    const addRow = (price, when, now) => { list.querySelectorAll('[data-now-tag]').forEach(t => { t.textContent = 'Restore'; t.style.background = 'transparent'; t.style.color = '#303030'; t.style.boxShadow = 'inset 0 0 0 1px #D4D4D4'; }); const d = document.createElement('div'); d.innerHTML = '<span style="font-weight:650; font-variant-numeric:tabular-nums">' + price + '</span><span style="color:#616161">' + when + '</span><span data-now-tag style="justify-self:end; font-size:12px; font-weight:600; padding:3px 10px; border-radius:999px; background:#CDFEE1; color:#0C5132">Now</span>'; Object.assign(d.style, { display: 'grid', gridTemplateColumns: '90px 1fr auto', alignItems: 'center', gap: '10px', padding: '0 18px', height: '48px', borderBottom: '1px solid #F1F1F1', fontSize: '14px', background: '#FFF6F2', opacity: '0', transform: 'translateY(-12px)', transition: 'opacity .4s ease, transform .7s cubic-bezier(.16,1,.3,1), background 1.4s ease' }); list.prepend(d); requestAnimationFrame(() => requestAnimationFrame(() => { d.style.opacity = '1'; d.style.transform = 'none'; d.style.background = '#FFF'; })); };
+    const seq = [['$139.00', 'Aug 24, 3:15 PM'], ['$119.00', 'Sep 2, 8:00 AM'], ['$129.00', 'Sep 19, 9:00 AM'], ['$89.00', 'Today, 2:32 PM']];
+    const cycle = done => {
+      let n = 0; list.innerHTML = ''; val.textContent = seq[0][0]; saved.textContent = 'Saved · ' + seq[0][1]; count.textContent = '1'; addRow(seq[0][0], seq[0][1]);
+      const next = () => {
+        n++; if (n >= seq.length) { MK.later(done, 2600); return; }
+        const g = document.createElement('span'); g.textContent = val.textContent;
+        Object.assign(g.style, { position: 'absolute', left: '13px', top: '10px', zIndex: '2', fontSize: '15px', color: '#8E1F0B', textDecoration: 'line-through', background: '#FEE9E8', padding: '0 6px', marginLeft: '-6px', borderRadius: '4px', transition: 'transform .9s cubic-bezier(.16,1,.3,1), opacity .9s ease', fontVariantNumeric: 'tabular-nums' });
+        ghosts.appendChild(g); this.later(() => { g.style.transform = 'translateY(-46px)'; g.style.opacity = '0'; }, 40);
+        MK.later(() => g.remove(), 1000);
+        val.textContent = ''; const txt = seq[n][0]; let i = 0;
+        const iv = setInterval(() => { val.textContent = txt.slice(0, ++i); if (i >= txt.length) { clearInterval(iv); saved.textContent = 'Saved · ' + seq[n][1]; count.textContent = String(n + 1); addRow(seq[n][0], seq[n][1]); MK.later(next, 1700); } }, 70); this._t.push(iv);
+      };
+      MK.later(next, 1200);
+    };
+    this._io.over = () => { const stop = MK.loop(box, cycle, 1200); box.addEventListener('pointerdown', stop, { once: true }); };
+  }
+
+  tracks() {
+    const r = this.root.current, box = r.querySelector('[data-tracks]'), MK = window.MotionKit, tiles = [...box.querySelectorAll('[data-tk]')];
+    const set = (t, on) => { const w = t.querySelector('[data-was]'), n = t.querySelector('[data-now]'); w.style.textDecoration = on ? 'line-through' : 'none'; w.style.color = on ? '#A32C00' : '#6B645B'; n.style.opacity = on ? 1 : 0; t.style.boxShadow = on ? '0 0 0 1.5px #FF4A1A' : '0 0 0 1px #DDD6CA'; };
+    if (MK.reducedMotion()) { tiles.forEach(t => set(t, true)); return; }
+    tiles.forEach(t => { t.style.opacity = 0; t.style.transform = 'translateY(20px)'; });
+    this._io.tracks = () => {
+      tiles.forEach((t, i) => this.later(() => { t.style.transition = 'opacity .6s ease, transform .9s cubic-bezier(.16,1,.3,1), box-shadow .3s ease'; t.style.opacity = 1; t.style.transform = 'none'; }, i * 70));
+      const srcs = [...r.querySelectorAll('[data-src]')];
+      srcs.forEach((x, i) => { x.style.opacity = 0; x.style.transform = 'translateY(14px) scale(.9)'; this.later(() => { x.style.transition = 'opacity .4s ease, transform .6s cubic-bezier(.34,1.56,.64,1)'; x.style.opacity = 1; x.style.transform = 'none'; }, 1100 + i * 140); });
+      const order = [0, 5, 2, 8, 4, 10, 1, 6, 3, 11, 7, 9];
+      const cycle = done => { tiles.forEach(t => set(t, false)); order.forEach((k, i) => MK.later(() => { set(tiles[k], true); MK.later(() => tiles[k].style.boxShadow = '0 0 0 1px #DDD6CA', 900); }, 500 + i * 380)); MK.later(done, 500 + order.length * 380 + 2600); };
+      this.later(() => MK.loop(box, cycle, 600), 900);
+    };
+  }
+
+  search() {
+    const r = this.root.current, box = r.querySelector('[data-search]'), MK = window.MotionKit;
+    const text = box.querySelector('[data-q-text]'), ph = box.querySelector('[data-q-ph]'), rows = [...box.querySelectorAll('[data-q-row]')];
+    const filter = w => rows.forEach(row => { const hit = !w || row.dataset.k.includes(w); row.style.height = hit ? '52px' : '0px'; row.style.background = hit && w ? '#FFF6F2' : 'transparent'; });
+    const type = (w, ms, cb) => { let i = 0; ph.style.display = 'none'; const iv = setInterval(() => { text.textContent = w.slice(0, ++i); if (i >= w.length) { clearInterval(iv); filter(w); cb(); } }, ms); this._t.push(iv); };
+    const erase = (ms, cb) => { const iv = setInterval(() => { text.textContent = text.textContent.slice(0, -1); if (!text.textContent) { clearInterval(iv); filter(''); ph.style.display = ''; cb(); } }, ms); this._t.push(iv); };
+    const words = ['headphones', 'shipping', 'status'];
+    const cycle = done => { let i = 0; const go = () => { if (i >= words.length) { done(); return; } const w = words[i++]; type(w, 70, () => MK.later(() => erase(28, () => MK.later(go, 600)), 2200)); }; go(); };
+    this._io.search = () => { const stop = MK.loop(box, cycle, 1400); box.addEventListener('pointerdown', stop, { once: true }); };
+  }
+
+  timeline() {
+    const r = this.root.current, tl = r.querySelector('[data-tl]'), MK = window.MotionKit;
+    const a = [...tl.querySelectorAll('[data-tl-a]')], b = [...tl.querySelectorAll('[data-tl-b]')], scan = tl.querySelector('[data-tl-scan]');
+    if (MK.reducedMotion()) { a.forEach(x => x.style.opacity = 1); b.forEach(x => { x.style.opacity = 1; x.style.transform = 'none'; }); return; }
+    this._io.tl = () => {
+      a.forEach((x, i) => { x.style.transform = 'translateY(-16px)'; this.later(() => { x.style.transition = 'opacity .3s ease, transform .6s cubic-bezier(.34,1.56,.64,1)'; x.style.opacity = 1; x.style.transform = 'none'; }, 200 + i * 35); });
+      this.later(() => {
+        scan.style.opacity = 1; scan.style.transition = 'left 1.8s cubic-bezier(.65,0,.35,1)'; scan.style.left = '100%';
+        b.forEach(x => { const d = (+x.dataset.left - 38) / 62 * 1800; this.later(() => { x.style.transition = 'opacity .25s ease, transform .5s cubic-bezier(.34,1.56,.64,1)'; x.style.opacity = 1; x.style.transform = 'none'; }, 60 + d); });
+        this.later(() => { scan.style.transition = 'opacity .3s ease'; scan.style.opacity = 0; }, 1900);
+      }, 1700);
+    };
+  }
+
+  pricing() {
+    const r = this.root.current, MK = window.MotionKit, cards = [...r.querySelectorAll('[data-price] > div')];
+    if (MK.reducedMotion()) return;
+    cards.forEach(c => { c.style.opacity = 0; c.style.transform = 'translateY(40px)'; });
+    this._io.price = () => cards.forEach((c, i) => this.later(() => { c.style.transition = 'opacity .7s ease, transform 1.1s cubic-bezier(.16,1,.3,1)'; c.style.opacity = 1; c.style.transform = 'none'; }, i * 100));
+  }
+
+  closing() {
+    const r = this.root.current, orbit = r.querySelector('[data-orbit]'), MK = window.MotionKit;
+    const chips = [...orbit.querySelectorAll('[data-chip]')], mark = orbit.querySelector('[data-c-mark]'), bar = orbit.querySelector('[data-c-bar]');
+    const R2 = (v, a, b) => Math.max(0, Math.min(1, (v - a) / (b - a)));
+    let c = 0, t0 = 0, fired = false;
+    const tilt = chips.map((_, i) => (i % 2 ? 1 : -1) * (4 + (i * 3) % 8));
+    this._frames.push(() => {
+      if (!MK.near(orbit)) return;
+      const W = orbit.clientWidth, rx = Math.min(W * .42, 520), ry = 150, now = performance.now();
+      if (fired) c = Math.min(1, (now - t0) / 1100);
+      const k = MK.EASE.scrub(c);
+      chips.forEach((el, i) => { const a = now * .00011 + i * Math.PI * 2 / chips.length, x = Math.cos(a) * rx * (1 - k), y = Math.sin(a) * ry * (1 - k);
+        el.style.transform = `translate(-50%,-50%) translate(${x}px,${y}px) rotate(${tilt[i] * (1 - k) + (i % 2 ? 12 : -12) * k}deg) scale(${1 - .6 * k})`; el.style.opacity = 1 - R2(c, .75, 1); });
+    });
+    this._io.close = () => {
+      fired = true; t0 = MK.reducedMotion() ? -1e9 : performance.now();
+      this.later(() => { mark.style.transition = 'opacity .6s ease, transform .6s cubic-bezier(.16,1,.3,1)'; mark.style.opacity = 1; mark.style.transform = 'none'; }, 800);
+      bar.style.transform = 'translateY(-14px) rotate(-7deg)'; bar.style.transformOrigin = '19px 29px'; bar.style.transformBox = 'view-box';
+      this.later(() => { bar.style.transition = 'opacity .2s ease, transform .5s cubic-bezier(.34,1.56,.64,1)'; bar.style.opacity = 1; bar.style.transform = 'none'; }, 1250);
+    };
+  }
+
+  signoff() {
+    const r = this.root.current, MK = window.MotionKit, letters = [...r.querySelectorAll('[data-mk-letter]')], sign = r.querySelector('[data-mk-sign]');
+    if (!sign || !letters.length || MK.reducedMotion()) return;
+    letters.forEach(l => { l.style.transform = 'translateY(130%)'; });
+    const check = () => { if (sign.getBoundingClientRect().top > window.innerHeight * 0.85) return; window.removeEventListener('scroll', check);
+      letters.forEach((l, i) => { l.style.transition = `transform 1.2s cubic-bezier(.16,1,.3,1) ${0.08 + i * 0.06}s`; l.style.transform = 'translateY(0)'; }); };
+    window.addEventListener('scroll', check, { passive: true }); check();
+  }
+}
+</script>
+</body>
+</html>

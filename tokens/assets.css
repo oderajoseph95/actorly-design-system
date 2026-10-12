@@ -1,0 +1,11 @@
+/* Paths resolve from tokens/.
+   The Shopify glyph is Shopify's trademark and is not shipped here. Get it from
+   https://www.shopify.com/brand-assets and point these variables at your copy, e.g.
+   :root { --shopify-glyph-white: url('/path/to/shopify-glyph-white.png'); }
+   Without them the glyph slot is an empty box of the same size. */
+.actorly-glyph { display:inline-block; width:16px; height:16px; background:center/contain no-repeat; flex:none; }
+.actorly-glyph--white { background-image:var(--shopify-glyph-white, none); }
+.actorly-glyph--black { background-image:var(--shopify-glyph-black, none); }
+.actorly-glyph--color { background-image:var(--shopify-glyph-color, none); }
+.actorly-mark { display:inline-block; background:url('../assets/logos/svg/actorly-mark-color.svg') center/contain no-repeat; }
+.actorly-mark--on-dark { background-image:url('../assets/logos/svg/actorly-mark-color-on-dark.svg'); }

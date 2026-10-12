@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#D9D3C8}</style>
+</helmet>
+<div role="note" style="background:#12100E; color:#F2EFE9; font-size:13px; line-height:1.4; text-align:center; padding:8px 16px; font-family:Archivo, Helvetica, sans-serif">Layout specimen. Placeholder copy, not published Actorly claims. Nothing here is live or can be installed or bought.</div>
+<div style="display:flex; flex-direction:column; gap:40px; padding:40px; font-family:Archivo, Helvetica, sans-serif">
+  <sc-for list="{{ cards }}" as="c" hint-placeholder-count="11">
+    <div id="og-{{ c.key }}" style="width:1200px; height:630px; flex:none; overflow:hidden; background:{{ c.bg }}; color:{{ c.fg }}; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:26px; padding:0 150px; box-sizing:border-box">
+      <div style="display:flex; align-items:center; gap:12px"><svg width="44" height="44" viewBox="0 0 48 48"><rect x="15" y="5" width="28" height="28" rx="7" fill="{{ c.fg }}" opacity=".32"></rect><rect x="5" y="15" width="28" height="28" rx="7" fill="#FF4A1A"></rect><path d="M26.5 31 H13.5 M18 26.5 L13.5 31 L18 35.5" fill="none" stroke="#12100E" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-weight:650; font-size:34px; letter-spacing:-.045em">actorly</span></div>
+      <div style="font-variation-settings:'wdth' 100; font-weight:700; font-size:{{ c.size }}; line-height:.96; letter-spacing:-.055em; max-width:900px; text-wrap:balance">{{ c.title }}</div>
+      <div style="font-size:26px; line-height:1.35; opacity:.75; max-width:760px; text-wrap:balance">{{ c.sub }}</div>
+      <div style="background:#FF4A1A; color:#12100E; border-radius:999px; padding:10px 22px; font-size:20px; font-weight:700">{{ c.stamp }} · <span style="font-weight:500">{{ c.stampSub }}</span></div>
+    </div>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const L = ['#F2EFE9', '#12100E'], D = ['#12100E', '#F2EFE9'], W = ['#FFFFFF', '#12100E'];
+    const C = [
+      ['home', L, '', 'The changes in your Shopify store, on the record.', 'The old value, the new value and who made it. Put select fields back, verified.', 'Price $129 → $89', '2:32 PM · who: unknown', '', '76px'],
+      ['coverage', W, 'What it tracks', 'What Actorly tracks, and what it can\'t.', 'The parts of a Shopify store, with the "not possible" answers left in.', 'Shipping $4.95 → $9.95', '10:40 AM · who: unknown', '/coverage', '84px'],
+      ['docs', L, 'Docs', 'Docs.', 'Install, read a change, see who made it, and put a field back.', 'Restored $129.00', 'Checked after it is written', '/docs', '120px'],
+      ['changelog', W, 'Changelog', 'Changelog.', 'Releases, newest first.', 'New · export to CSV', 'Restore plan', '/changelog', '120px'],
+      ['blog', L, 'Blog', 'Shopify change history, explained.', 'Plain answers for when something changed and nobody knows why.', 'Tags rewritten', '11:05 AM · Bulk Editor app, likely', '/blog', '84px'],
+      ['article', W, 'Blog', 'How to see who changed a product in Shopify.', 'What Shopify shows you, what it doesn\'t, and how to find out.', 'Status Active → Draft', '9:12 AM · Jordan O., likely', '/blog/who-changed-a-product', '72px'],
+      ['security', D, 'Security', 'Your store\'s history, kept carefully.', 'What Actorly keeps and where it runs.', 'Customer details', 'Kept only as the product states', '/security', '80px'],
+      ['privacy', L, 'Legal', 'Privacy policy.', 'What Actorly collects, why, and how to have it deleted.', 'Deleted after uninstall', '48 hours after Shopify asks', '/privacy', '100px'],
+      ['terms', L, 'Legal', 'Terms of service.', 'The agreement between your store and ONDUTYOPS LLC.', 'Watch · free', 'Restore · $29 a month', '/terms', '100px'],
+      ['dpa', L, 'Legal', 'Data processing agreement.', 'How store data is processed on your behalf.', '3 subprocessors', 'Cloudflare · PostHog · Slack', '/dpa', '88px'],
+      ['contact', W, 'Contact', 'Talk to a person.', 'Support, security and partners.', 'support@actorlyai.com', 'Include your .myshopify.com address', '/contact', '110px']
+    ];
+    return { cards: C.map(c => ({ key: c[0], bg: c[1][0], fg: c[1][1], section: c[2], title: c[3], sub: c[4], stamp: c[5], stampSub: c[6], path: c[7], size: ({ '120px': '96px', '110px': '92px', '100px': '84px', '88px': '76px', '84px': '72px', '80px': '70px', '76px': '68px', '72px': '64px' })[c[8]] || c[8] })) };
+  }
+}
+</script>
+</body>
+</html>

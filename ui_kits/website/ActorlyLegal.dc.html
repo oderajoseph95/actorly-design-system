@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="overflow-x:clip">
+<dc-import name="SiteNav" hint-size="100%,86px"></dc-import>
+<section style="padding:170px 24px 56px">
+  <div style="max-width:860px; margin:0 auto; display:flex; flex-direction:column; gap:20px">
+    <span style="font-size:15px; font-weight:650; color:#A32C00">Legal</span>
+    <h1 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5.8vw,92px); line-height:.94; letter-spacing:-.055em"><span data-mk-mask><span data-mk-line>{{ title }}</span></span></h1>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; font-size:19px; line-height:1.55; color:#57514A">{{ lede }}</p>
+    <div data-mk-fade data-mk-delay="0.4" style="display:flex; flex-wrap:wrap; gap:8px 20px; font-size:15px; color:#57514A"><span style="font-weight:650; color:#A32C00">Specimen text: not the published policy</span><span>ONDUTYOPS LLC</span><a href="mailto:support@actorlyai.com" style="color:#12100E; font-weight:600">support@actorlyai.com</a></div>
+  </div>
+</section>
+<section style="background:#FFF; padding:72px 24px 120px">
+  <div style="max-width:860px; margin:0 auto; display:flex; flex-direction:column; gap:40px">
+    <nav style="padding:22px 24px; border-radius:22px; background:#F2EFE9; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:6px 20px; font-size:15px">
+      <sc-for list="{{ clauses }}" as="c" hint-placeholder-count="8"><a href="#c-{{ c.n }}" style="padding:4px 0"><b style="font-weight:650; color:#A32C00; margin-right:8px">{{ c.n }}</b>{{ c.h }}</a></sc-for>
+    </nav>
+    <sc-for list="{{ clauses }}" as="c" hint-placeholder-count="8">
+      <div id="c-{{ c.n }}" style="scroll-margin-top:110px; display:flex; flex-direction:column; gap:12px">
+        <h2 style="margin:0; font-size:24px; font-weight:700; letter-spacing:-.02em; display:flex; gap:12px"><span style="color:#A32C00">{{ c.n }}</span>{{ c.h }}</h2>
+        <sc-for list="{{ c.ps }}" as="p" hint-placeholder-count="1"><p style="margin:0; font-size:17px; line-height:1.7; color:#3A342E">{{ p }}</p></sc-for>
+      </div>
+    </sc-for>
+    <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:28px; border-top:1px solid #DDD6CA">
+      <sc-for list="{{ others }}" as="o" hint-placeholder-count="2"><a href="{{ o.href }}" style="height:48px; padding:0 20px; border-radius:999px; box-shadow:inset 0 0 0 1px #CFC6B7; font-size:15px; font-weight:600; display:flex; align-items:center" style-hover="box-shadow:inset 0 0 0 1.5px #12100E">{{ o.label }}</a></sc-for>
+    </div>
+  </div>
+</section>
+<dc-import name="SiteFooter" hint-size="100%,820px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;doc&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;privacy&quot;,&quot;terms&quot;,&quot;dpa&quot;],&quot;default&quot;:&quot;privacy&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const D = {
+      privacy: { title: 'Privacy policy.', lede: 'What Actorly collects when you install it, why, who handles it, and how to have it deleted.', c: [
+        ['Who we are', ['Actorly is made by ONDUTYOPS LLC. Questions about this policy go to support@actorlyai.com.']],
+        ['What we collect from your store', ['The fields Actorly tracks, listed on the coverage page, and their old and new values when they change. When Shopify reports who made a change, we keep that name or app name with it.', 'Actorly stores some personal details about your customers when they appear in a change it records: a customer\'s name (for a customer with no name, Shopify supplies their email address as the name, so that email address is stored), whether a customer agreed to email or text marketing, a customer\'s default address and the shipping and billing addresses on an order, including the phone numbers on them, and the notes on a customer, an order or a draft order. Actorly does not otherwise fetch a customer\'s account email address or phone number. When Shopify sends an erasure request for a customer, these details are erased for that customer and for the orders the request names. Details on a draft order are erased when your store\'s data is erased.', 'The saved copy of each notification Shopify sends has customer personal details removed before it is stored.']],
+        ['What we collect about you', ['Your shop domain and shop name, the plan you are on, the store owner\'s name and email address, the store\'s contact email, Shopify\'s plan name for the store, its time zone and currency, the permissions you granted, and when you installed. Used to run the app and to contact you about it.']],
+        ['How we use it', ['To show you your store\'s change history, to run restores you confirm, and to keep the service working. We do not sell data and do not use it for advertising.']],
+        ['Who handles it', ['Cloudflare, Inc. hosts Actorly and stores its data. PostHog counts product events about Actorly itself, only when switched on, and receives the store\'s myshopify.com domain, the plan name, counts and durations: no customer data and no store content. Slack receives operational notices for the Actorly team: the store\'s myshopify.com domain and a short status. Shopify is the platform Actorly runs inside and the source of the data. The same list is in our data processing agreement.']],
+        ['How long we keep it', ['On the Watch plan, 90 days (about 3 months) of history. On the Restore plan, history is kept for as long as you stay on Restore and keep Actorly installed. If you move from Restore to Watch, history older than 90 days is deleted after 14 days\' notice and does not come back if you upgrade again. When you uninstall, Shopify sends Actorly a deletion request 48 hours later, and Actorly then removes your store\'s history, saved evidence and account records. If you reinstall within those 48 hours, nothing is deleted.']],
+        ['Cookies', ['[Website cookies: to be stated by the company.]']],
+        ['Your rights', ['You can write to support@actorlyai.com about your data. When Shopify sends an erasure request for a customer or a store, Actorly carries it out automatically. When Shopify sends a request for a customer\'s data, the store owner downloads a copy of what Actorly holds about that customer from Settings, Privacy in the app and replies.']],
+        ['Changes to this policy', ['If we change this policy in a way that matters, we will update the date above and tell store owners by email.']]
+      ] },
+      terms: { title: 'Terms of service.', lede: 'The agreement between your store and ONDUTYOPS LLC when you use Actorly.', c: [
+        ['The service', ['Actorly records changes to supported parts of your Shopify store and lets you restore supported fields. What is supported is listed on the coverage page and may change as Shopify changes.']],
+        ['Your account', ['You use Actorly through your Shopify store. You are responsible for who has access to your Shopify admin and therefore to Actorly.']],
+        ['Plans and billing', ['Watch is free. Restore is billed by Shopify at the price shown when you subscribe. You can change or cancel your plan at any time in your Shopify admin; charges stop when you cancel or uninstall.']],
+        ['Restores', ['A restore writes a value you confirm back to your store, one field at a time. Actorly checks the field before and after, but you are responsible for confirming that a restore is what you want.']],
+        ['What Actorly can\'t see', ['Actorly cannot show changes made before it was installed, or changes Shopify does not make available to apps. Who made a change is shown only when it can be matched, and is otherwise marked unknown.']],
+        ['Acceptable use', ['Don\'t use Actorly to break the law, to access stores you are not authorised to manage, or to interfere with the service.']],
+        ['Availability', ['We work to keep Actorly running at all times but do not promise uninterrupted service. Changes that arrive while the service is unavailable are recorded when it recovers where Shopify allows it.']],
+        ['Liability', ['To the extent the law allows, our total liability is limited to the amount you paid for Actorly in the 12 months before the claim.']],
+        ['Ending the agreement', ['You can stop at any time by uninstalling. We may suspend accounts that break these terms. On ending, your data is deleted as described in the privacy policy.']],
+        ['Governing law', ['[Governing law: to be set by the company and its counsel.]']]
+      ] },
+      dpa: { title: 'Data processing agreement.', lede: 'How ONDUTYOPS LLC processes store data on your behalf, for stores that need a DPA.', c: [
+        ['Roles', ['Your store is the controller of the data in your Shopify store. ONDUTYOPS LLC is the processor, acting only on your instructions given through the app.']],
+        ['What we process', ['Tracked store fields and their old and new values, timestamps, and the name of the person or app that made a change when Shopify reports it. Where a customer, an order or a draft order appears in a recorded change: a customer\'s name, marketing consent, default address and phone, the shipping and billing addresses and phones on an order, and the notes on a customer, an order or a draft order. Also the store owner\'s name and email address and the store\'s contact email. These are processed to record and show changes to a customer, order or draft order in the store\'s own history.']],
+        ['Purpose', ['Recording your store\'s change history, showing it to you, and running restores you confirm.']],
+        ['Subprocessors', ['Cloudflare, Inc. (hosting and storage), PostHog (product event counts about Actorly itself, only when switched on) and Slack (operational notices for the Actorly team). PostHog and Slack receive no customer data and no store content. Shopify is the platform and the source of the data. [Notice of changes to this list: to be set by the company.]']],
+        ['Security', ['Cloudflare encrypts stored data at rest, and connections use TLS. Each store\'s history is kept in its own separate database.']],
+        ['Breaches', ['If a personal data breach affects your store, we will tell you without undue delay after we become aware of it.']],
+        ['Deletion', ['When you uninstall, Shopify sends Actorly a deletion request 48 hours later, and Actorly then removes your store\'s history, saved evidence and account records. If you reinstall within those 48 hours, nothing is deleted. [Earlier deletion on request: to be confirmed by the company.]']],
+        ['International transfers', ['Cloudflare operates a global network. [Where data is processed and the transfer safeguards: to be completed by the company and its counsel.]']]
+      ] }
+    };
+    const k = this.props.doc || 'privacy', d = D[k];
+    const L = { privacy: ['Privacy policy', 'Actorly Privacy.dc.html'], terms: ['Terms of service', 'Actorly Terms.dc.html'], dpa: ['Data processing agreement', 'Actorly DPA.dc.html'] };
+    return {
+      title: d.title, lede: d.lede,
+      clauses: d.c.map((c, i) => ({ n: String(i + 1), h: c[0], ps: c[1] })),
+      others: Object.keys(L).filter(x => x !== k).map(x => ({ label: L[x][0] + ' →', href: L[x][1] }))
+    };
+  }
+}
+</script>
+</body>
+</html>

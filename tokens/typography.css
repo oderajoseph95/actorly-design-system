@@ -1,0 +1,35 @@
+:root {
+  --display-wdth: 'wdth' 100; /* @kind font */
+  --h1-home: clamp(34px, min(5.4vw, 10.5vh), 104px); /* @kind font */
+  --h1: clamp(44px, 6.6vw, 108px); /* @kind font */
+  --h2: clamp(40px, 6.2vw, 100px); /* @kind font */
+  --h2-pinned: clamp(34px, min(4.8vw, 8vh), 76px); /* @kind font */
+  --h2-docs: clamp(34px, 4vw, 60px); /* @kind font */
+  --stat: clamp(56px, 8vw, 140px); /* @kind font */
+  --card-title: 22px; /* @kind font */
+  --lede: clamp(17px, 1.4vw, 20px); /* @kind font */
+  --body-size: 16px; /* @kind font */
+  --body-long: 18px; /* @kind font */
+  --small: 14px; /* @kind font */
+  --micro: 13px; /* @kind font */
+  --track-h1: -0.058em; /* @kind font */
+  --track-h2: -0.055em; /* @kind font */
+  --track-card: -0.02em; /* @kind font */
+  --track-wordmark: -0.045em; /* @kind font */
+  --lh-display: .92; /* @kind font */
+  --lh-h2: .94; /* @kind font */
+  --lh-lede: 1.55; /* @kind font */
+  --lh-body: 1.6; /* @kind font */
+  --lh-long: 1.7; /* @kind font */
+  --weight-display: 700; /* @kind font */
+  --weight-wordmark: 650; /* @kind font */
+  --weight-strong: 600; /* @kind font */
+  /* Semantic aliases */
+  --text-display: var(--h1); /* @kind font */
+  --text-heading: var(--h2); /* @kind font */
+  --text-lede: var(--lede); /* @kind font */
+  --text-body-size: var(--body-size); /* @kind font */
+}
+h1, h2, .display { font-family: var(--font-sans); font-variation-settings: var(--display-wdth); font-weight: var(--weight-display); text-wrap: balance; }
+p { text-wrap: pretty; }
+.tabular { font-variant-numeric: tabular-nums; }

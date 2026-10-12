@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><title>Contact · Actorly</title><link rel="canonical" href="https://actorlyai.com/contact"><meta property="og:type" content="website"><meta property="og:site_name" content="Actorly"><meta property="og:url" content="https://actorlyai.com/contact"><meta property="og:title" content="Contact · Actorly"><meta property="og:description" content="Get help with Actorly, report a security issue, or talk to us about agency use."><meta name="twitter:card" content="summary_large_image"><link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png"><meta name="description" content="Get help with Actorly, report a security issue, or talk to us about agency use."></helmet>
+<div style="overflow-x:clip">
+<dc-import name="SiteNav" hint-size="100%,86px"></dc-import>
+<section style="padding:180px 24px 90px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px">
+    <h1 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(44px,6.6vw,108px); line-height:.92; letter-spacing:-.058em"><span data-mk-mask><span data-mk-line>Talk to a person.</span></span></h1>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:#57514A; max-width:560px">Include your shop's .myshopify.com address so we can look straight away.</p>
+  </div>
+</section>
+<section style="padding:0 24px 130px">
+  <div data-mk-stagger="0.1" style="max-width:1240px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:16px">
+    <sc-for list="{{ routes }}" as="r" hint-placeholder-count="3">
+      <div style="background:#FFF; border-radius:26px; box-shadow:0 0 0 1px #DDD6CA; padding:30px; display:flex; flex-direction:column; gap:14px">
+        <span style="font-size:22px; font-weight:700; letter-spacing:-.02em">{{ r.title }}</span>
+        <span style="font-size:16px; line-height:1.6; color:#57514A; flex:1">{{ r.body }}</span>
+        <div style="display:flex; align-items:center; gap:8px; padding:6px 6px 6px 16px; border-radius:999px; background:#F2EFE9"><a href="{{ r.mailto }}" style="flex:1; font-size:15px; font-weight:650; color:#12100E; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">{{ r.email }}</a><button type="button" onClick="{{ r.copy }}" style="height:38px; padding:0 16px; border:0; border-radius:999px; background:#12100E; color:#F2EFE9; font:inherit; font-size:14px; font-weight:600; cursor:pointer">{{ r.copyLabel }}</button></div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+<section style="background:#FFF; padding:130px 24px">
+  <div style="max-width:860px; margin:0 auto; display:flex; flex-direction:column; gap:14px">
+    <h2 data-mk-reveal style="margin:0 0 28px; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(36px,4.6vw,72px); line-height:.94; letter-spacing:-.055em"><span data-mk-mask><span data-mk-line>Before you write.</span></span></h2>
+    <details style="border-top:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:22px 0; font-size:19px; font-weight:600">I can't see changes from before I installed<span data-plus style="font-size:24px; font-weight:400; transition:transform .3s">+</span></summary><p style="margin:0 0 22px; font-size:17px; line-height:1.6; color:#57514A">Shopify doesn't keep them, so no app can show them. Your history starts the day you install.</p></details>
+    <details style="border-top:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:22px 0; font-size:19px; font-weight:600">It says "unknown" for who made a change<span data-plus style="font-size:24px; font-weight:400; transition:transform .3s">+</span></summary><p style="margin:0 0 22px; font-size:17px; line-height:1.6; color:#57514A">Shopify didn't report enough to match it. Actorly shows unknown rather than guessing. <a href="Actorly Docs.dc.html#who" style="color:#A32C00; text-decoration:underline; text-underline-offset:4px">How who is worked out</a></p></details>
+    <details style="border-top:1px solid #DDD6CA; border-bottom:1px solid #DDD6CA"><summary style="cursor:pointer; display:flex; justify-content:space-between; gap:20px; padding:22px 0; font-size:19px; font-weight:600">There's no Restore button on a change<span data-plus style="font-size:24px; font-weight:400; transition:transform .3s">+</span></summary><p style="margin:0 0 22px; font-size:17px; line-height:1.6; color:#57514A">That field can't be put back yet, or this month's free restore is used. <a href="Actorly Coverage.dc.html" style="color:#A32C00; text-decoration:underline; text-underline-offset:4px">See what can be put back</a></p></details>
+  </div>
+</section>
+<dc-import name="SiteFooter" hint-size="100%,820px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { copied: '' };
+  renderVals() {
+    const R = [['Support', 'Questions about using Actorly, a change you can\'t find, or a restore that didn\'t go through.', 'support@actorlyai.com'], ['Security', 'Report a vulnerability or ask about how data is handled.', 'security@example.com'], ['Agencies and partners', 'Managing several stores, or want to talk about working together.', 'partners@example.com']];
+    return { routes: R.map(([title, body, email]) => ({ title, body, email, mailto: 'mailto:' + email, copyLabel: this.state.copied === email ? 'Copied' : 'Copy', copy: () => { try { navigator.clipboard.writeText(email); } catch (e) {} this.setState({ copied: email }); setTimeout(() => this.setState({ copied: '' }), 1600); } })) };
+  }
+}
+</script>
+</body>
+</html>

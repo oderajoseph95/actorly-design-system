@@ -1,0 +1,27 @@
+:root {
+  /* Base */
+  --ink: #12100E; --paper: #F2EFE9; --white: #FFFFFF;
+  --ember: #FF4A1A; --ember-text: #A32C00; --ember-hover-on-ink: #FF6A3D; --ember-tint: rgba(255,74,26,.14); --ember-wash: #FFF6F2; --ember-soft: #FFE6DC;
+  --body: #57514A; --body-strong: #3A342E; --muted: #6B645B;
+  --line: #DDD6CA; --line-soft: #EFEBE4; --outline: #CFC6B7; --table-head: #F7F4EE;
+  --ink-line: #2F2A25; --ink-outline: #4A433C; --body-on-ink: #C9C1B5; --chip-on-ink: #2A2521;
+  /* Status (who made it, coverage answers). --confirmed-* is the green tone: coverage "Yes", the Coverage tag, the "now" chip. The product never shows a "Confirmed" confidence. */
+  --confirmed-bg: #CDFEE1; --confirmed-fg: #0C5132;
+  --likely-bg: #E0F0FF; --likely-fg: #00527C;
+  --unknown-bg: #EBEBEB; --unknown-fg: #616161;
+  --notyet-bg: #EBE6DD; --notyet-fg: #57514A;
+  --notpossible-bg: #F7F4EE; --notpossible-fg: #8A847A;
+  --was-bg: #FEE9E8; --was-fg: #8E1F0B; --now-bg: #CDFEE1; --now-fg: #0C5132;
+  /* Shopify admin mock frames only */
+  --admin-bar: #1A1A1A; --admin-search: #303030; --admin-ground: #F1F1F1; --admin-sidebar: #EBEBEB;
+  --admin-ink: #303030; --admin-muted: #616161; --admin-line: #E3E3E3; --admin-head: #F7F7F7;
+  /* Semantic */
+  --surface-page: var(--paper); --surface-panel: var(--white); --surface-inverse: var(--ink);
+  --text-primary: var(--ink); --text-body: var(--body); --text-secondary: var(--muted);
+  --text-on-inverse: var(--paper); --text-on-inverse-body: var(--body-on-ink);
+  --accent: var(--ember); --accent-text: var(--ember-text);
+  --border: var(--line); --border-soft: var(--line-soft); --border-inverse: var(--ink-line);
+  --button-primary-bg: var(--ink); --button-primary-fg: var(--paper);
+  --button-primary-hover-bg: var(--ember); --button-primary-hover-fg: var(--ink);
+  --button-inverse-bg: var(--ember); --button-inverse-fg: var(--ink);
+}

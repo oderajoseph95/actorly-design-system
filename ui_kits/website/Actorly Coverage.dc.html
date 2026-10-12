@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>What Actorly tracks: Shopify change coverage · Actorly</title><link rel="canonical" href="https://actorlyai.com/coverage"><meta property="og:type" content="website"><meta property="og:site_name" content="Actorly"><meta property="og:url" content="https://actorlyai.com/coverage"><meta property="og:title" content="What Actorly tracks: Shopify change coverage · Actorly"><meta property="og:description" content="Every part of a Shopify store Actorly records, whether it keeps the old value, whether it can show who made the change, and what can be put back."><meta name="twitter:card" content="summary_large_image"><link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
+<style>@media (max-width:760px){[data-cov-head]{display:none!important}[data-cov-row]{grid-template-columns:1fr 1fr!important}[data-cov-row]>span:first-child,[data-cov-row]>span:nth-child(2){grid-column:1/-1}}</style>
+<meta name="description" content="Every part of a Shopify store Actorly records, whether it keeps the old value, whether it can show who made the change, and what can be put back.">
+</helmet>
+<div style="overflow-x:clip">
+<dc-import name="SiteNav" current="coverage" hint-size="100%,86px"></dc-import>
+
+<section style="padding:180px 24px 80px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px">
+    <h1 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(44px,6.6vw,108px); line-height:.92; letter-spacing:-.058em">
+      <span data-mk-mask><span data-mk-line>What Actorly tracks,</span></span>
+      <span data-mk-mask><span data-mk-line>and what it can't.</span></span>
+    </h1>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:#57514A; max-width:660px; text-wrap:pretty">For each part of your store listed here: when a change shows up, whether Actorly keeps the old value, whether it can tell who made it, and whether it can put it back. The "no" answers stay on the page.</p>
+  </div>
+</section>
+
+<section style="padding:0 24px 140px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; gap:20px">
+    <div data-mk-fade style="display:flex; flex-wrap:wrap; gap:8px; align-items:center">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4"><button type="button" onClick="{{ f.pick }}" style="height:42px; padding:0 18px; border:0; border-radius:999px; font:inherit; font-size:15px; font-weight:600; cursor:pointer; background:{{ f.bg }}; color:{{ f.fg }}; box-shadow:0 0 0 1px #DDD6CA; transition:background .25s ease, color .25s ease">{{ f.label }}</button></sc-for>
+      <span style="margin-left:auto; font-size:15px; color:#57514A">{{ countLabel }}</span>
+    </div>
+    <div data-mk-fade style="background:#FFF; border-radius:26px; box-shadow:0 0 0 1px #DDD6CA, 0 40px 80px -40px rgba(18,16,14,.25); overflow:hidden">
+      <div data-cov-head style="display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1.3fr) repeat(4,minmax(0,1fr)); gap:14px; padding:16px 24px; background:#F7F4EE; font-size:14px; font-weight:700"><span>Part of your store</span><span>When a change appears</span><span>History</span><span>Old and new value</span><span>Who changed it</span><span>Put it back</span></div>
+      <sc-for list="{{ rows }}" as="r" hint-placeholder-count="12">
+        <div data-cov-row style="display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1.3fr) repeat(4,minmax(0,1fr)); gap:14px; align-items:center; padding:14px 24px; border-top:1px solid #EFEBE4; font-size:15px; transition:background .3s ease; background:{{ r.bg }}">
+          <span style="font-weight:650">{{ r.name }}</span>
+          <span style="color:#57514A">{{ r.when }}</span>
+          <span><span style="display:inline-block; line-height:1.3; max-width:100%; padding:4px 10px; border-radius:12px; font-size:13px; font-weight:600; background:{{ r.h.bg }}; color:{{ r.h.fg }}">{{ r.h.t }}</span></span>
+          <span><span style="display:inline-block; line-height:1.3; max-width:100%; padding:4px 10px; border-radius:12px; font-size:13px; font-weight:600; background:{{ r.d.bg }}; color:{{ r.d.fg }}">{{ r.d.t }}</span></span>
+          <span><span style="display:inline-block; line-height:1.3; max-width:100%; padding:4px 10px; border-radius:12px; font-size:13px; font-weight:600; background:{{ r.w.bg }}; color:{{ r.w.fg }}">{{ r.w.t }}</span></span>
+          <span><span style="display:inline-block; line-height:1.3; max-width:100%; padding:4px 10px; border-radius:12px; font-size:13px; font-weight:600; background:{{ r.p.bg }}; color:{{ r.p.fg }}">{{ r.p.t }}</span></span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:6px 0 0; font-size:14px; color:#6B645B">Specimen rows: a snapshot of the coverage table at one date. The live page is generated from the product's coverage registry.</p>
+  </div>
+</section>
+
+<section style="background:#FFF; padding:150px 24px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; gap:44px">
+    <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5.4vw,88px); line-height:.94; letter-spacing:-.055em"><span data-mk-mask><span data-mk-line>What the answers mean.</span></span></h2>
+    <div data-mk-stagger="0.08" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:16px">
+      <div style="background:#F2EFE9; border-radius:24px; padding:26px; display:flex; flex-direction:column; gap:12px"><span style="align-self:flex-start; padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600; background:#CDFEE1; color:#0C5132">Yes</span><span style="font-size:16px; line-height:1.6; color:#57514A">Recorded for every change of this kind, with the full before and after.</span></div>
+      <div style="background:#F2EFE9; border-radius:24px; padding:26px; display:flex; flex-direction:column; gap:12px"><span style="align-self:flex-start; padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600; background:#E0F0FF; color:#00527C">Some fields</span><span style="font-size:16px; line-height:1.6; color:#57514A">Recorded for the fields Shopify sends or Actorly can read. Others on the same item aren't.</span></div>
+      <div style="background:#F2EFE9; border-radius:24px; padding:26px; display:flex; flex-direction:column; gap:12px"><span style="align-self:flex-start; padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600; background:#E0F0FF; color:#00527C">When Shopify reports it</span><span style="font-size:16px; line-height:1.6; color:#57514A">Works when Shopify includes the detail, which isn't every time. Actorly says when it doesn't know.</span></div>
+      <div style="background:#F2EFE9; border-radius:24px; padding:26px; display:flex; flex-direction:column; gap:12px"><span style="align-self:flex-start; padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600; background:#EBE6DD; color:#57514A">Not yet</span><span style="font-size:16px; line-height:1.6; color:#57514A">Possible, but not built yet. It changes here when it ships.</span></div>
+      <div style="background:#F2EFE9; border-radius:24px; padding:26px; display:flex; flex-direction:column; gap:12px"><span style="align-self:flex-start; padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600; background:#F2EFE9; color:#6B645B; box-shadow:inset 0 0 0 1px #CFC6B7">Not possible</span><span style="font-size:16px; line-height:1.6; color:#57514A">Shopify does not let an app do this, or Actorly does not hold the permission it would need. It will not appear as an option.</span></div>
+      <div style="background:#F2EFE9; border-radius:24px; padding:26px; display:flex; flex-direction:column; gap:12px"><span style="font-size:17px; font-weight:700">"On a scheduled check"</span><span style="font-size:16px; line-height:1.6; color:#57514A">Shopify doesn't send a notice for these, so Actorly checks them regularly. The change shows up at the next check, not the second it happens.</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-mk-io="ladder" style="padding:150px 24px">
+  <div style="max-width:1240px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr)); gap:56px; align-items:center">
+    <div style="display:flex; flex-direction:column; gap:22px">
+      <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5.4vw,88px); line-height:.94; letter-spacing:-.055em"><span data-mk-mask><span data-mk-line>Why "who" depends</span></span><span data-mk-mask><span data-mk-line>on Shopify.</span></span></h2>
+      <p data-mk-fade data-mk-delay="0.3" style="margin:0; font-size:18px; line-height:1.6; color:#57514A; max-width:48ch">Shopify tells apps that something changed, but usually not who changed it. Actorly matches each product change against Shopify's own activity for the same product at the same time. When the match is clear, you see a name and how sure Actorly is. When it isn't, you see unknown.</p>
+      <p data-mk-fade data-mk-delay="0.4" style="margin:0; font-size:18px; line-height:1.6; color:#57514A; max-width:48ch">Your team doesn't need to do anything differently. Edits made the normal way in Shopify are matched the same as any other.</p>
+    </div>
+    <div data-ladder style="background:#FFF; border-radius:26px; box-shadow:0 0 0 1px #DDD6CA, 0 40px 80px -40px rgba(18,16,14,.3); padding:28px; display:flex; flex-direction:column; gap:12px; font-family:Inter,-apple-system,'Segoe UI',sans-serif; color:#303030">
+      <div style="display:flex; align-items:center; gap:14px; padding:16px; border-radius:16px; background:#F7F7F7"><span style="flex:1"><b style="font-weight:650; display:block; font-size:15px">Likely</b><span style="font-size:13px; color:#616161">An entry in Shopify's activity log matched this change closely in time.</span></span><span style="background:#E0F0FF; color:#00527C; padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600">Likely</span></div>
+      <div style="display:flex; align-items:center; gap:14px; padding:16px; border-radius:16px; background:#F7F7F7"><span style="flex:1"><b style="font-weight:650; display:block; font-size:15px">Possible</b><span style="font-size:13px; color:#616161">An entry in Shopify's activity log was near this change in time. The match is weak.</span></span><span style="background:#E0F0FF; color:#00527C; padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600">Possible</span></div>
+      <div style="display:flex; align-items:center; gap:14px; padding:16px; border-radius:16px; background:#F7F7F7"><span style="flex:1"><b style="font-weight:650; display:block; font-size:15px">Unknown</b><span style="font-size:13px; color:#616161">Shopify does not record who made this change. This will not change later.</span></span><span style="background:#EBEBEB; color:#616161; padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600">Unknown</span></div>
+      <span style="font-size:13px; color:#616161; padding:4px 4px 0">Unknown is never upgraded to a guess later. "Not attributed yet" and "Investigating" are waiting states, shown while Actorly checks.</span>
+    </div>
+  </div>
+</section>
+
+<section style="background:#12100E; color:#F2EFE9; padding:140px 24px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px">
+    <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(40px,5.4vw,88px); line-height:.94; letter-spacing:-.055em"><span data-mk-mask><span data-mk-line>Start recording today.</span></span></h2>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; font-size:19px; line-height:1.55; color:#C9C1B5; max-width:540px">Your history starts the day you install. The free plan watches the parts marked above.</p>
+    <div data-mk-fade data-mk-delay="0.4" style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center"><a href="Actorly Home.dc.html#install" data-mk-magnet style="height:54px; padding:0 28px; border-radius:999px; background:#FF4A1A; color:#12100E; font-size:16px; font-weight:700; display:flex; align-items:center; gap:10px" style-hover="background:#F2EFE9; color:#12100E"><span data-shopify-glyph-slot aria-hidden="true" style="display:inline-block; width:16px; height:16px; flex:none"></span>Install free on Shopify</a><a href="Actorly Docs.dc.html" style="height:54px; padding:0 24px; border-radius:999px; box-shadow:inset 0 0 0 1px #4A433C; font-size:16px; font-weight:600; display:flex; align-items:center" style-hover="color:#FF6A3D">Read the docs</a></div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,820px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { f: 'all' };
+  renderVals() {
+    const T = [
+      ['Products', 'notify', 'Yes', 'Yes', 'When Shopify reports it', 'Some fields'], ['Variants and prices', 'notify', 'When Shopify reports it', 'Some fields', 'Not yet', 'Some fields'],
+      ['Inventory', 'notify', 'Yes', 'Some fields', 'Not possible', 'Not possible'], ['Collections', 'notify', 'Yes', 'Yes', 'Not yet', 'Some fields'],
+      ['Discounts', 'notify', 'Yes', 'Some fields', 'Not yet', 'Not yet'], ['Shipping profiles', 'notify', 'Yes', 'Yes', 'Not possible', 'Some fields'],
+      ['Locations', 'notify', 'Yes', 'Yes', 'Not possible', 'Some fields'], ['Markets', 'notify', 'Yes', 'Some fields', 'Not possible', 'Some fields'],
+      ['Store settings', 'notify', 'Yes', 'Yes', 'Not possible', 'Not possible'], ['Themes', 'notify', 'Some fields', 'Some fields', 'Not possible', 'Not possible'],
+      ['Orders', 'notify', 'Some fields', 'Yes', 'Not yet', 'Not possible'], ['Fulfillments', 'notify', 'Some fields', 'Yes', 'Not possible', 'Not possible'],
+      ['Draft orders', 'notify', 'Some fields', 'Some fields', 'Not yet', 'Not yet'], ['Customers', 'notify', 'Some fields', 'Yes', 'Not yet', 'Not possible'],
+      ['Metafields', 'notify', 'Some fields', 'Some fields', 'Not possible', 'Not yet'], ['Metafield definitions', 'notify', 'Some fields', 'Some fields', 'Not possible', 'Not possible'],
+      ['Selling plans', 'notify', 'Some fields', 'Some fields', 'Not possible', 'Not yet'], ['Files', 'check', 'Some fields', 'Some fields', 'Not possible', 'Some fields'],
+      ['Pages', 'check', 'Some fields', 'Some fields', 'Not yet', 'Not yet'], ['Blogs', 'check', 'Some fields', 'Some fields', 'Not yet', 'Not yet'],
+      ['Articles', 'check', 'Some fields', 'Some fields', 'Not yet', 'Not yet'], ['Menus', 'check', 'Some fields', 'Some fields', 'Not possible', 'Not yet'],
+      ['URL redirects', 'check', 'Some fields', 'Some fields', 'Not possible', 'Not yet'], ['Policies', 'check', 'Some fields', 'Some fields', 'Not possible', 'Not yet'],
+      ['Price lists', 'check', 'Some fields', 'Some fields', 'Not possible', 'Not yet'], ['Product translations', 'no', 'Not yet', 'Not yet', 'Not possible', 'Not yet'],
+      ['Metaobjects', 'no', 'Not yet', 'Not yet', 'Not possible', 'Not yet']
+    ];
+    const chip = t => t === 'Yes' ? { t, bg: '#CDFEE1', fg: '#0C5132' } : t === 'Not yet' ? { t, bg: '#EBE6DD', fg: '#57514A' } : t === 'Not possible' ? { t, bg: '#F7F4EE', fg: '#8A847A' } : { t, bg: '#E0F0FF', fg: '#00527C' };
+    const when = { notify: 'When Shopify notifies Actorly', check: 'On a scheduled check', no: 'Not yet' };
+    const f = this.state.f, ok = v => v !== 'Not yet' && v !== 'Not possible';
+    const pass = r => f === 'all' || (f === 'back' && ok(r[5])) || (f === 'who' && ok(r[4])) || (f === 'no' && (r[4] === 'Not possible' || r[5] === 'Not possible'));
+    const rows = T.filter(pass).map((r, i) => ({ name: r[0], when: when[r[1]], h: chip(r[2]), d: chip(r[3]), w: chip(r[4]), p: chip(r[5]), bg: i % 2 ? '#FFFFFF' : '#FFFFFF' }));
+    const F = [['all', 'Everything'], ['back', 'Can be put back'], ['who', 'Shows who'], ['no', 'Has a "not possible"']];
+    return {
+      rows, countLabel: rows.length + (rows.length === 1 ? ' part' : ' parts') + ' of your store',
+      filters: F.map(([k, label]) => ({ label, bg: k === f ? '#12100E' : '#FFFFFF', fg: k === f ? '#F2EFE9' : '#12100E', pick: () => this.setState({ f: k }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

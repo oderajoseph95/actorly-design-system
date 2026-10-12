@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Security and data · Actorly</title><link rel="canonical" href="https://actorlyai.com/security"><meta property="og:type" content="website"><meta property="og:site_name" content="Actorly"><meta property="og:url" content="https://actorlyai.com/security"><meta property="og:title" content="Security and data · Actorly"><meta property="og:description" content="What Actorly stores, where it runs, who processes data and how deletion works."><meta name="twitter:card" content="summary_large_image"><link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
+<meta name="description" content="What Actorly stores, where it runs, who processes data and how deletion works.">
+</helmet>
+<div style="overflow-x:clip">
+<dc-import name="SiteNav" hint-size="100%,86px"></dc-import>
+
+<section style="padding:180px 24px 90px">
+  <div style="max-width:1240px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px">
+    <h1 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(44px,6.6vw,108px); line-height:.92; letter-spacing:-.058em"><span data-mk-mask><span data-mk-line>Your store's history,</span></span><span data-mk-mask><span data-mk-line>kept carefully.</span></span></h1>
+    <p data-mk-fade data-mk-delay="0.3" style="margin:0; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:#57514A; max-width:640px; text-wrap:pretty">Actorly records what changed in your store. Here is what it keeps, where it runs and what happens to it when you leave.</p>
+    <p data-mk-fade data-mk-delay="0.4" style="margin:0; font-size:14px; font-weight:650; color:#A32C00">Specimen text: not the published security page.</p>
+  </div>
+</section>
+
+<section style="padding:0 24px 140px">
+  <div data-mk-stagger="0.08" style="max-width:1240px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:16px">
+    <div style="background:#FFF; border-radius:24px; box-shadow:0 0 0 1px #DDD6CA; padding:28px; display:flex; flex-direction:column; gap:12px"><span style="font-size:20px; font-weight:700">What Actorly keeps</span><span style="font-size:16px; line-height:1.6; color:#57514A">The old and new value of each tracked field, when it changed, and who made it when Shopify reports it.</span></div>
+    <div style="background:#FFF; border-radius:24px; box-shadow:0 0 0 1px #DDD6CA; padding:28px; display:flex; flex-direction:column; gap:12px"><span style="font-size:20px; font-weight:700">What it holds about customers</span><span style="font-size:16px; line-height:1.6; color:#57514A">Actorly stores some personal details about customers when they appear in a change it records: a name, whether they agreed to marketing, a default address and the addresses on an order, including phone numbers, and the notes on a customer, an order or a draft order. It does not fetch payment details, card numbers or tracking numbers. When Shopify sends an erasure request for a customer, those details are erased; details on a draft order are erased when the store's data is erased.</span></div>
+    <div style="background:#FFF; border-radius:24px; box-shadow:0 0 0 1px #DDD6CA; padding:28px; display:flex; flex-direction:column; gap:12px"><span style="font-size:20px; font-weight:700">Nothing on your storefront</span><span style="font-size:16px; line-height:1.6; color:#57514A">No scripts, no theme code, no app blocks. Shoppers never load anything from Actorly.</span></div>
+    <div style="background:#FFF; border-radius:24px; box-shadow:0 0 0 1px #DDD6CA; padding:28px; display:flex; flex-direction:column; gap:12px"><span style="font-size:20px; font-weight:700">Writes only when you confirm</span><span style="font-size:16px; line-height:1.6; color:#57514A">Actorly changes your store only during a restore you confirmed, one field at a time, and checks the result.</span></div>
+  </div>
+</section>
+
+<section style="background:#FFF; padding:140px 24px">
+  <div style="max-width:1000px; margin:0 auto; display:flex; flex-direction:column; gap:72px">
+    <div style="display:flex; flex-direction:column; gap:22px">
+      <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(36px,4.6vw,72px); line-height:.94; letter-spacing:-.055em"><span data-mk-mask><span data-mk-line>Where it runs.</span></span></h2>
+      <div data-mk-fade style="border-radius:22px; box-shadow:0 0 0 1px #DDD6CA; overflow:hidden">
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:16px; padding:16px 22px; border-bottom:1px solid #EFEBE4; font-size:16px"><span style="font-weight:650">Hosting</span><span style="color:#57514A">Cloudflare Workers</span></div>
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:16px; padding:16px 22px; border-bottom:1px solid #EFEBE4; font-size:16px"><span style="font-weight:650">Storage</span><span style="color:#57514A">Cloudflare, which encrypts it at rest</span></div>
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:16px; padding:16px 22px; border-bottom:1px solid #EFEBE4; font-size:16px"><span style="font-weight:650">In transit</span><span style="color:#57514A">TLS on every connection</span></div>
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:16px; padding:16px 22px; font-size:16px"><span style="font-weight:650">Access to Shopify</span><span style="color:#57514A">Shopify's own app permissions, approved by you at install and revoked when you uninstall</span></div>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:22px">
+      <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(36px,4.6vw,72px); line-height:.94; letter-spacing:-.055em"><span data-mk-mask><span data-mk-line>Who else handles data.</span></span></h2>
+      <p style="margin:0; font-size:17px; line-height:1.6; color:#57514A">Three companies handle data for Actorly. The same list is in the <a href="Actorly DPA.dc.html" style="color:#A32C00; text-decoration:underline; text-underline-offset:4px">data processing agreement</a>.</p>
+      <div data-mk-stagger="0.08" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:14px">
+        <div style="padding:24px; border-radius:22px; background:#F2EFE9; display:flex; flex-direction:column; gap:6px"><span style="font-size:19px; font-weight:700">Cloudflare, Inc.</span><span style="font-size:15px; color:#57514A; line-height:1.55">Hosting and storage of your change history.</span></div>
+        <div style="padding:24px; border-radius:22px; background:#F2EFE9; display:flex; flex-direction:column; gap:6px"><span style="font-size:19px; font-weight:700">PostHog</span><span style="font-size:15px; color:#57514A; line-height:1.55">Counts product events about Actorly itself, only when switched on. No customer data, no store content.</span></div>
+        <div style="padding:24px; border-radius:22px; background:#F2EFE9; display:flex; flex-direction:column; gap:6px"><span style="font-size:19px; font-weight:700">Slack</span><span style="font-size:15px; color:#57514A; line-height:1.55">Operational notices for the Actorly team: the store domain and a short status. No customer data, no store content.</span></div>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:22px">
+      <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(36px,4.6vw,72px); line-height:.94; letter-spacing:-.055em"><span data-mk-mask><span data-mk-line>Keeping and deleting.</span></span></h2>
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:16px; padding:16px 0; border-top:1px solid #EFEBE4; font-size:16px"><span style="font-weight:650">Watch plan</span><span style="color:#57514A">History is kept for 3 months</span></div>
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:16px; padding:16px 0; border-top:1px solid #EFEBE4; font-size:16px"><span style="font-weight:650">Restore plan</span><span style="color:#57514A">History is kept for as long as you stay on Restore and keep Actorly installed</span></div>
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:16px; padding:16px 0; border-top:1px solid #EFEBE4; border-bottom:1px solid #EFEBE4; font-size:16px"><span style="font-weight:650">Uninstall</span><span style="color:#57514A">Shopify sends a deletion request 48 hours later, then your history, saved evidence and account records are removed. Reinstalling within 48 hours keeps everything</span></div>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:22px">
+      <h2 data-mk-reveal style="margin:0; font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(36px,4.6vw,72px); line-height:.94; letter-spacing:-.055em"><span data-mk-mask><span data-mk-line>Found a problem?</span></span></h2>
+      <p style="margin:0; font-size:17px; line-height:1.6; color:#57514A; max-width:60ch">Email <a href="mailto:security@example.com" style="color:#A32C00; font-weight:600">security@example.com</a> with what you found and how to reproduce it. Please give us a reasonable time to fix it before sharing it publicly. We don't hold formal certifications such as SOC 2 today.</p>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,820px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>
